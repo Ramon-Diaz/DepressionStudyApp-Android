@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Estudio de depresión en alumnos</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_log">Bitacora</string>
+    <string name="title_voice">Voz</string>
+
+    <string name="title_dashboard">Perfil</string>
+    <string name="title_notifications">Notificaciones</string>
+
+    <string name="cancel">Cancelar</string>
+
+    <string name="connect_to_shealth">Conectar con Samsung Health</string>
+
+    <string name="notice">Aviso</string>
+    <string name="msg_perm_acquired">Se requieren todos los permisos</string>
+    <string name="msg_conn_not_available">La conexión con Samsung Health no está disponible</string>
+    <string name="msg_req_install">Por favor instala Samsung Health</string>
+    <string name="msg_req_upgrade">Por favor actualiza Samsung Health</string>
+    <string name="msg_req_enable">Por favor habilita Samsung Health</string>
+    <string name="msg_req_agree">Por favor acepta la política de Samsung Health</string>
+    <string name="msg_req_available">Please make Samsung Health available</string>
+
+    <string name="send">Enviar datos</string>
+    <string name="update">Actualizar datos</string>
+
+    <string name="home_title">Motivo del estudio</string>
+    <string name="home_description">El proyecto tiene como objetivo detectar y analizar de manera eficaz, algún estado de alteración, como falta de ánimo, estrés o cierto grado de depresión, con base en la información obtenida a partir de los sensores en el reloj inteligente y el algoritmo de aprendizaje automático.</string>
+
+    <string name="device_id">Autogenerado</string>
+    <string name="user_age">Edad</string>
+    <string name="user_watch">ID del reloj</string>
+    <string name="user_gender_male">Masculino</string>
+    <string name="user_gender_female">Femenino</string>
+    <string name="user_gender_other">Otro</string>
+    <string name="user_weight">Peso</string>
+    <string name="user_height">Altura</string>
+    <string name="user_terms">Acepto brindar estos datos por motivos del experimento.</string>
+
+
+
+    <string name="advice_title">Nuestro consejo</string>
+    <string name="advice_1">"Anda a paso ligero de 15 a 30 minutos cada día, o baila, corre o monta en bicicleta, si lo prefieres. A las personas deprimidas no les suele apetecer estar activas. Pero, de todos modos, oblígate a hacerlo (pídele a un amigo que te acompañe si lo necesitas para estar motivado). En cuanto hagas del ejercicio un hábito, no tardarás mucho en percibir un cambio positivo en tu estado de ánimo.\nAparte del ejercicio aeróbico, algunas posturas de yoga te pueden ayudar a aliviar los sentimientos depresivos."</string>
+    <string name="advice_2">La depresión puede afectar al apetito. Cuando están deprimidas, a algunas personas no les apetece nada comer, pero hay otras pueden comer demasiado. Si la depresión ha afectado a tus hábitos alimentarios, tendrás que tener muy presente la necesidad de alimentarte bien. La nutrición puede influir en el estado de ánimo y el nivel de energía de una persona.</string>
+    <string name="advice_3">"Intenta identificar las circunstancias que han contribuido a tu depresión. Cuando sepas qué es lo que te ha hecho sentirte triste y decaído y por qué.\n Una vez hayas aireado esos pensamientos y sentimientos, centra la atención en algo positivo. Actúa para solucionar tus problemas."</string>
+    <string name="advice_4">Cuando una persona está deprimida, puede tener bloqueadas la creatividad y la capacidad para disfrutar de las cosas. Ejercita tu imaginación (pintando, dibujando, haciendo garabatos, cosiendo, escribiendo, bailando, componiendo música, etc.) y no sólo conseguirás que fluyan tus jugos creativos sino que es posible que también experimentes emociones positivas. Dedica tiempo a jugar con un amigo o con tu mascota o haz algo divertido a solas.</string>
+    <string name="advice_5">"La depresión repercute sobre los pensamientos de las personas, haciendo que todo parezca negro, desastroso, triste y negativo. Si la depresión te está haciendo fijarte solo en lo negativo, haz un esfuerzo para fijarte en las cosas buenas de la vida.\nComo ejercicio puedes hacer una lista de cosas positivas que te pasaron en tu día, te ayudará a darte cuenta que por muy mínimo puedes encontrar lados positivos."</string>
+    <string name="advice_6">OK</string>
+    <string name="advice_7">"Una característica típica de la depresión es perder el interés por alcanzar metas u objetivos.\n Establece objetivos mayores o menores con el fin de dar ilusión es un importante estímulo para superar la depresión."</string>
+    <string name="advice_8">Ten hobbies y practicarlos todo lo que puedas.Te hará sentir vivo.Pase lo que pase o te olvides de reservar momentos para ti mismo y para hacer aquello que disfrutes.No dejes que tu estado de ánimo determine tu nivel de actividad.</string>
+    <string name="advice_9">No te encierres en ti mismo, es importante que quites corazas y permitas que alguien conozca cómo te sientes, recuerda que la vida es muy corta para sufrir más tiempo del necesario.</string>
+    <string name="advice_10">¡Comienza HOY a moverte! Da AHORA el primer paso y pasito a pasito lograrás superar la depresión y volver a recuperar tu vitalidad.</string>
+
+    <string name="notification">Sin notificaciones</string>
+
+    <string name="audioDesc">Para empezar a grabar presiona el botón</string>
+    <string name="preview">Vista previa</string>
+    <string name="playing">Reproduciendo</string>
+    <string name="notPlaying">En espera</string>
+    <string name="ended">Finalizado</string>
+    <string name="stopped">Detenido</string>
+    <string name="sendAudio">Enviar archivo</string>
+    <string name="removeAudio">Eliminar</string>
+    <string name="audioFreeText">En esta sección, cuéntanos algo de tu día</string>
+    <string name="recordingInstructions">Por favor selecciona cada botón una vez por día.</string>
+    <string name="customBtnText">Grabación libre.</string>
+    <string name="textBtnText">Grabación texto.</string>
+    <string name="log_send">Enviar bitácora</string>
+    <string name="log_first">Me costó mucho relajarme.</string>
+    <string name="log_second">Me di cuenta que tenia la boca seca.</string>
+    <string name="log_third">No podía sentir ningún sentimiento positivo.</string>
+    <string name="log_fourth">Se me hizo difícil respirar.</string>
+    <string name="log_fifth">Se me hizo difícil tomar la iniciativa para hacer cosas.</string>
+    <string name="log_sixth">Reaccioné exageradamente en ciertas situaciones.</string>
+    <string name="log_seventh">Sentí que mis manos temblaban.</string>
+    <string name="log_eight">Sentí que tenia muchos nervios.</string>
+    <string name="log_ninth">Estaba preocupado por situaciones en las cuales podía tener pánico o en las que podría hacer el ridículo.</string>
+    <string name="log_tenth">Sentí que no tenia nada por que vivir.</string>
+    <string name="log_eleventh">Noté que me agitaba.</string>
+    <string name="log_twelfth">Se me hizo difícil relajarme.</string>
+    <string name="log_thirteenth">Me sentí triste y deprimido.</string>
+    <string name="log_fourteenth">No toleré nada que no me permitiera continuar con lo que estaba haciendo.</string>
+    <string name="log_fifteenth">Sentí que estaba al punto de pánico.</string>
+    <string name="log_sixteenth">No me pude entusiasmar por nada.</string>
+    <string name="log_seventeenth">Sentí que valía muy poco como persona.</string>
+    <string name="log_eighteenth">Sentí que estaba muy irritable.</string>
+    <string name="log_nineteenth">Sentí los latidos de mi corazón a pesar de no haber hecho ningún esfuerzo físico.</string>
+    <string name="log_twentieth">Tuve miedo sin razón.</string>
+    <string name="log_twentyfirst">Sentí que la vida no tenia ningún sentido.</string>
+    <string name="log_instructions">"Por favor lea las siguientes afirmaciones y coloque un círculo alrededor de un número (0, 1, 2, 3) que indica cuánto esta afirmación le aplicó a usted durante la semana pasada. No hay respuestas correctas o incorrectas. No tome demasiado tiempo para contestar. "</string>
+
+</resources>

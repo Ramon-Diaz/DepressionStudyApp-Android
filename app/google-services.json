@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "573838917834",
+    "project_id": "studentdepressionstudyandroid",
+    "storage_bucket": "studentdepressionstudyandroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573838917834:android:520b26b9e8d14a1a4c3433",
+        "android_client_info": {
+          "package_name": "technology.mota.studentstressstudy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "573838917834-gv87vc0fk933jon0vsui1ihaa7ar5gi2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGDDUzL3FB1qLQqVXA2LmRYlIcq-CouOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "573838917834-gv87vc0fk933jon0vsui1ihaa7ar5gi2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
