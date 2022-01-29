@@ -96,17 +96,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     transaction.addToBackStack(null);
                     transaction.commit();
                     return true;
-                case R.id.navigation_notifications:
-                    Fragment notification = fragmentManager.findFragmentByTag("notification");
-                    if (notification == null) {
-                        notification = new NotificationFragment();
-                    }
-                    transaction = fragmentManager.beginTransaction();
-                    transaction.replace(R.id.fragment, notification, "notification");
-                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN); //setting animation for fragment transaction
-                    transaction.addToBackStack(null);
-                    transaction.commit();
-                    return true;
                 case R.id.navigation_voice:
                     Fragment record = fragmentManager.findFragmentByTag("record");
                     if (record == null) {
@@ -171,8 +160,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //region Enable Daily Notifications
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 19);
-        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.HOUR_OF_DAY, 14);
+        calendar.set(Calendar.MINUTE, 27);
         calendar.set(Calendar.SECOND, 1);
         // if notification time is before selected time, send notification the next day
         if (calendar.before(Calendar.getInstance())) {
