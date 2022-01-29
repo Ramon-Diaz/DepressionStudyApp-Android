@@ -25,7 +25,6 @@
     <string name="update">Actualizar datos</string>
 
     <string name="home_title">Motivo del estudio</string>
-    <string name="home_description">El proyecto tiene como objetivo detectar y analizar de manera eficaz, algún estado de alteración, como falta de ánimo, estrés o cierto grado de depresión, con base en la información obtenida a partir de los sensores en el reloj inteligente y el algoritmo de aprendizaje automático.</string>
 
     <string name="device_id">Autogenerado</string>
     <string name="user_age">Edad</string>
@@ -88,5 +87,26 @@
     <string name="log_twentieth">Tuve miedo sin razón.</string>
     <string name="log_twentyfirst">Sentí que la vida no tenia ningún sentido.</string>
     <string name="log_instructions">"Por favor lea las siguientes afirmaciones y coloque un círculo alrededor de un número (0, 1, 2, 3) que indica cuánto esta afirmación le aplicó a usted durante la semana pasada. No hay respuestas correctas o incorrectas. No tome demasiado tiempo para contestar. "</string>
+    <string name="prompt_email">E-mail</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="welcome">Bienvenido !</string>
+    <string name="prompt_gender">Genero</string>
+    <string name="action_register">Register</string>
+    <string name="register_here">Registrate aquí</string>
+    <string name="forgot_password">Olvidaste la contraseña?</string>
+    <string name="email_error">Email es necessario!</string>
+    <string name="password_error">La contraseña es necesaria!</string>
+    <string name="password_error_2">La contraseña debe ser de mas de 6 caracteres</string>
+    <string name="reset_password">Reestablecer contraseña?</string>
+    <string name="email_prompt_reset">Introduce tu email para recibir el link.</string>
+    <string name="home_description">The project aims to detect changes in mood and stress levels, by analyzing data obtained from the smartwatch sensors and the spoken diary recordings.</string>
+    <string name="yes">Yes</string>
+    <string name="reset_link_prompt">Se ha enviado la liga a su correo.</string>
+    <string name="reset_link_prompt_error">"NO se pudo enviar la liga "</string>
+    <string name="error">Error</string>
+    <string name="alias_error">El alias es necesario!</string>
+    <string name="gender_error">Género es necesario!</string>
+    <string name="user_created">Usuario generado!</string>
 
 </resources>

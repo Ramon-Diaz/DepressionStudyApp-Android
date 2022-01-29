@@ -57,15 +57,15 @@ public class Login extends AppCompatActivity {
                 String password = etPassword.getText().toString().trim();
 
                 if(TextUtils.isEmpty(username)){
-                    etUsername.setError("Email is necessary!");
+                    etUsername.setError(view.getContext().getString(R.string.email_error));
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    etPassword.setError("Password is necessary!");
+                    etPassword.setError(view.getContext().getString(R.string.password_error));
                     return;
                 }
                 if(password.length()< 6){
-                    etPassword.setError("Password must be more than 6 characters");
+                    etPassword.setError(view.getContext().getString(R.string.password_error_2));
                     return;
                 }
                 progressBar.setVisibility(View.VISIBLE);
@@ -74,10 +74,10 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(Login.this, "@string/welcome",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, R.string.welcome,Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         } else {
-                            Toast.makeText(Login.this, "Error! " + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, R.string.welcome + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
 
                         }
@@ -100,11 +100,11 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 EditText resetMail = new EditText((view.getContext()));
                 AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext());
-                passwordResetDialog.setTitle("Reset Password ?");
-                passwordResetDialog.setMessage("Enter your email to received reset link.");
+                passwordResetDialog.setTitle(view.getContext().getString(R.string.reset_password));
+                passwordResetDialog.setMessage(view.getContext().getString(R.string.email_prompt_reset));
                 passwordResetDialog.setView(resetMail);
 
-                passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                passwordResetDialog.setPositiveButton(view.getContext().getString(R.string.yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         // extract the email and send reset link
@@ -112,12 +112,12 @@ public class Login extends AppCompatActivity {
                         fAuth.sendPasswordResetEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Toast.makeText(Login.this, "Reset link sent to your email.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, view.getContext().getString(R.string.reset_link_prompt), Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(Login.this, "Reset link was NOT sent " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, view.getContext().getString(R.string.reset_link_prompt_error) + e.getMessage(), Toast.LENGTH_SHORT).show();
 
                             }
                         });

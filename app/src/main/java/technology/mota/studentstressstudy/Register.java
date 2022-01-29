@@ -68,23 +68,23 @@ public class Register extends AppCompatActivity {
                 String password = etPassword.getText().toString();
 
                 if(TextUtils.isEmpty(alias)){
-                    etAlias.setError("Alias is necessary!");
-                    return;
-                }
-                if(TextUtils.isEmpty(password)){
-                    etPassword.setError("Password is necessary!");
+                    etAlias.setError(view.getContext().getString(R.string.alias_error));
                     return;
                 }
                 if(TextUtils.isEmpty(gender)){
-                    etGender.setError("Gender is necessary!");
-                    return;
-                }
-                if(password.length()< 6){
-                    etPassword.setError("Password must be more than 6 characters");
+                    etGender.setError(view.getContext().getString(R.string.gender_error));
                     return;
                 }
                 if(TextUtils.isEmpty(username)){
-                    etUsername.setError("Email is necessary");
+                    etUsername.setError(view.getContext().getString(R.string.email_error));
+                    return;
+                }
+                if(TextUtils.isEmpty(password)){
+                    etPassword.setError(view.getContext().getString(R.string.password_error));
+                    return;
+                }
+                if(password.length()< 6){
+                    etPassword.setError(view.getContext().getString(R.string.password_error_2));
                     return;
                 }
 
@@ -94,7 +94,7 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(Register.this, "User Created",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, R.string.user_created,Toast.LENGTH_SHORT).show();
                             userID = fAuth.getCurrentUser().getUid();
                             DocumentReference documentReference = fStore.collection("users").document(userID);
                             Map<String,Object> user = new HashMap<>();
@@ -108,9 +108,9 @@ public class Register extends AppCompatActivity {
                                     Log.d(TAG, "onSuccess: user profile is created for "+ userID);
                                 }
                             });
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(),Login.class));
                         } else {
-                            Toast.makeText(Register.this, "Error! " + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, R.string.error + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }

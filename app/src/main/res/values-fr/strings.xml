@@ -76,4 +76,24 @@
     <string name="log_twentieth">"J’ai eu peur sans bonne raison.  "</string>
     <string name="log_twentyfirst">J’ai eu l’impression que la vie n’avait pas de sens.</string>
     <string name="log_instructions">Veuillez lire chaque énoncé et encercler un chiffre, 0, 1, 2 ou 3, pour indiquer dans quelle mesure l\'énoncé s\'est appliqué à vous au cours de la dernière semaine. Il n\'y a pas de bonnes ou de mauvaises réponses. Ne passez pas trop de temps sur une déclaration.</string>
+    <string name="prompt_email">E-mail</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">Se connecter</string>
+    <string name="welcome">Bienvenue !</string>
+    <string name="prompt_gender">Genre</string>
+    <string name="action_register">Registre</string>
+    <string name="register_here">Inscrivez-vous ici</string>
+    <string name="forgot_password">Mot de passe oublié?</string>
+    <string name="email_error">L\'email est nécessaire!</string>
+    <string name="password_error">Le mot de passe est nécessaire!</string>
+    <string name="password_error_2">Le mot de passe doit comporter plus de 6 caractères</string>
+    <string name="reset_password">Réinitialiser le mot de passe?</string>
+    <string name="email_prompt_reset">Entrez votre email pour recevoir le lien de réinitialisation.</string>
+    <string name="yes">Oui</string>
+    <string name="reset_link_prompt">Lien de réinitialisation envoyé à votre courriel.</string>
+    <string name="reset_link_prompt_error">"Le lien de réinitialisation n'a PAS été envoyé "</string>
+    <string name="error">Erreur</string>
+    <string name="alias_error">Un alias est nécessaire !</string>
+    <string name="gender_error">Le genre est nécessaire !</string>
+    <string name="user_created">Utilisateur créé!</string>
 </resources>
