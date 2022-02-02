@@ -3,10 +3,9 @@
 <resources>
     <string name="app_name">Depression Study in Students</string>
     <string name="title_home">Home</string>
-    <string name="title_log">Log</string>
+    <string name="title_log" translatable="false">DASS</string>
     <string name="title_voice">Voice</string>
     <string name="title_dashboard">Profile</string>
-    <string name="title_notifications">Notifications</string>
     <string name="cancel">Cancel</string>
     <string name="connect_to_shealth">Connect with Samsung-Health</string>
     <string name="notice">Notice</string>
@@ -103,8 +102,8 @@
     <string name="email_error">Email is necessary!</string>
     <string name="password_error">Password is necessary!</string>
     <string name="password_error_2">Password must be more than 6 characters</string>
-    <string name="reset_password">Reset Password?</string>
-    <string name="email_prompt_reset">Enter your email to received reset link.</string>
+    <string name="reset_password">Forgot Password?</string>
+    <string name="email_prompt_reset">Please send an email to diazramo@ualberta.ca</string>
     <string name="yes">Yes</string>
     <string name="reset_link_prompt">Reset link sent to your email.</string>
     <string name="reset_link_prompt_error">Reset link was NOT sent</string>

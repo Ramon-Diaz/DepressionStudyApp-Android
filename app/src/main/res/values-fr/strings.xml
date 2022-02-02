@@ -2,10 +2,8 @@
 <resources>
     <string name="app_name">Étude sur la dépression chez les étudiants</string>
     <string name="title_home">Home</string>
-    <string name="title_log">Log</string>
     <string name="title_voice">Voixe</string>
     <string name="title_dashboard">Profil</string>
-    <string name="title_notifications">Notifications</string>
     <string name="cancel">Annuler</string>
     <string name="connect_to_shealth">Connectez-vous à Samsung Health</string>
     <string name="notice">Avis</string>
@@ -87,8 +85,8 @@
     <string name="email_error">L\'email est nécessaire!</string>
     <string name="password_error">Le mot de passe est nécessaire!</string>
     <string name="password_error_2">Le mot de passe doit comporter plus de 6 caractères</string>
-    <string name="reset_password">Réinitialiser le mot de passe?</string>
-    <string name="email_prompt_reset">Entrez votre email pour recevoir le lien de réinitialisation.</string>
+    <string name="reset_password">mot de passe oublié?</string>
+    <string name="email_prompt_reset">Veuillez envoyer un courriel à diazramo@ualberta.ca</string>
     <string name="yes">Oui</string>
     <string name="reset_link_prompt">Lien de réinitialisation envoyé à votre courriel.</string>
     <string name="reset_link_prompt_error">"Le lien de réinitialisation n'a PAS été envoyé "</string>

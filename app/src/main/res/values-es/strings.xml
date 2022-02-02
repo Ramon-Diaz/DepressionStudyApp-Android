@@ -2,11 +2,9 @@
 <resources>
     <string name="app_name">Estudio de depresión en alumnos</string>
     <string name="title_home">Inicio</string>
-    <string name="title_log">Bitacora</string>
     <string name="title_voice">Voz</string>
 
     <string name="title_dashboard">Perfil</string>
-    <string name="title_notifications">Notificaciones</string>
 
     <string name="cancel">Cancelar</string>
 
@@ -99,7 +97,7 @@
     <string name="password_error">La contraseña es necesaria!</string>
     <string name="password_error_2">La contraseña debe ser de mas de 6 caracteres</string>
     <string name="reset_password">Reestablecer contraseña?</string>
-    <string name="email_prompt_reset">Introduce tu email para recibir el link.</string>
+    <string name="email_prompt_reset">Por favor envia un correo a diazramo@ualberta.ca</string>
     <string name="home_description">The project aims to detect changes in mood and stress levels, by analyzing data obtained from the smartwatch sensors and the spoken diary recordings.</string>
     <string name="yes">Yes</string>
     <string name="reset_link_prompt">Se ha enviado la liga a su correo.</string>
