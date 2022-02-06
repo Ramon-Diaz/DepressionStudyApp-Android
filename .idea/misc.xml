@@ -19,6 +19,7 @@
         <entry key="app/src/main/res/layout/fragment_recording_option.xml" value="0.14635416666666667" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2875" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.14635416666666667" />
+        <entry key="app/src/main/res/xml/network_security_config.xml" value="0.1" />
       </map>
     </option>
   </component>

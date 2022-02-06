@@ -131,8 +131,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
 
-        String name = sharedPreferences.getString(KEY_ALIAS, null);
-        Toast.makeText(MainActivity.this, "User: " + name ,Toast.LENGTH_SHORT).show();
+        String alias = sharedPreferences.getString(KEY_ALIAS, null);
+        String password = sharedPreferences.getString(KEY_PASSWORD, null);
+
+        Toast.makeText(MainActivity.this, "User: " + alias ,Toast.LENGTH_SHORT).show();
 
         // Create a HealthDataStore instance and set its listener
 //        mStore = new HealthDataStore(this, mConnectionListener);
@@ -182,19 +184,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //To enable Boot Receiver class
         pm.setComponentEnabledSetting(receiver, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 
-        // get data saved in device
-        SharedPreferences pref = getSharedPreferences("StudentStressStudy", MODE_PRIVATE);
-        SendFunctionality.device_id = pref.getString("DEVICE_ID", "");
-        SendFunctionality.username = pref.getString("USERNAME", "");
-        SendFunctionality.gender = pref.getString("GENDER", "");
-        SendFunctionality.age = pref.getString("AGE", "");
-        SendFunctionality.weight = pref.getString("WEIGHT", "");
-        SendFunctionality.height = pref.getString("HEIGHT", "");
-        SendFunctionality.terms = pref.getString("TERMS", "");
-        SendFunctionality.watch = pref.getString("WATCH", "");
-        SharedPreferences.Editor edit = pref.edit();
-        edit.putInt("ADVICE", (int) Math.ceil(Math.random() * 9) + 1);
-        edit.commit();
+//        // get data saved in device
+//        SharedPreferences pref = getSharedPreferences("StudentStressStudy", MODE_PRIVATE);
+//        SendFunctionality.device_id = pref.getString("DEVICE_ID", "");
+//        SendFunctionality.username = pref.getString("USERNAME", "");
+//        SendFunctionality.gender = pref.getString("GENDER", "");
+//        SendFunctionality.age = pref.getString("AGE", "");
+//        SendFunctionality.weight = pref.getString("WEIGHT", "");
+//        SendFunctionality.height = pref.getString("HEIGHT", "");
+//        SendFunctionality.terms = pref.getString("TERMS", "");
+//        SendFunctionality.watch = pref.getString("WATCH", "");
+//        SharedPreferences.Editor edit = pref.edit();
+//        edit.putInt("ADVICE", (int) Math.ceil(Math.random() * 9) + 1);
+//        edit.commit();
     }
 
 

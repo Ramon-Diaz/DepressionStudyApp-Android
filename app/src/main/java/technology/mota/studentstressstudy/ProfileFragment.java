@@ -6,138 +6,101 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import static android.content.Context.MODE_PRIVATE;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
-    private EditText ID;
-    private EditText NAME;
     private EditText AGE;
-    private EditText WATCH;
-    private EditText WEIGHT;
-    private EditText HEIGHT;
-    private RadioButton FEMALE;
-    private RadioButton MALE;
-    private RadioButton OTHER;
-    private RadioGroup GENDER;
-    private CheckBox TERMS;
+    private Spinner GENDER;
+    private Spinner LANGUAGE;
 
     private Button UPDATE;
+
+    SharedPreferences sharedPreferences;
+    public static final String SHARED_PREF_NAME = "StudentStressStudy";
+    public static final String KEY_ALIAS = "alias";
+    public static final String KEY_PASSWORD = "password";
 
     public ProfileFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_profile, container, false);
-        NAME = v.findViewById(R.id.username);
-        ID = v.findViewById(R.id.deviceId);
-        AGE = v.findViewById(R.id.age);
-        WEIGHT = v.findViewById(R.id.weight);
-        HEIGHT = v.findViewById(R.id.height);
-        MALE = v.findViewById(R.id.male);
-        OTHER = v.findViewById(R.id.other);
-        TERMS = v.findViewById(R.id.terms);
-        FEMALE = v.findViewById(R.id.female);
-        GENDER = v.findViewById(R.id.gender);
-        WATCH = v.findViewById(R.id.watch);
-        UPDATE = v.findViewById(R.id.update);
 
+        AGE = v.findViewById(R.id.age);
+
+        //get the spinner from the xml.
+        Spinner spinner_gender = (Spinner) v.findViewById(R.id.spinner_gender);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter_gender = ArrayAdapter.createFromResource(v.getContext(),
+                R.array.dropdown_gender, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter_gender.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner_gender.setAdapter(adapter_gender);
+
+        ArrayAdapter<CharSequence> adapter_language = ArrayAdapter.createFromResource(v.getContext(),
+                R.array.dropdown_language, android.R.layout.simple_spinner_item);
+        adapter_language.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Spinner spinner_language = (Spinner) v.findViewById(R.id.spinner_language);
+        spinner_language.setAdapter(adapter_language);
+
+        GENDER = spinner_gender;
+        LANGUAGE = spinner_language;
+
+        UPDATE = v.findViewById(R.id.update);
         UPDATE.setOnClickListener(this);
 
-        NAME.setText(SendFunctionality.username);
-        ID.setText(SendFunctionality.device_id);
-        AGE.setText(SendFunctionality.age);
-        WEIGHT.setText(SendFunctionality.weight);
-        HEIGHT.setText(SendFunctionality.height);
-        WATCH.setText(SendFunctionality.watch);
-        if ("F".equals(SendFunctionality.gender)) {
-            MALE.setChecked(false);
-            OTHER.setChecked(false);
-            FEMALE.setChecked(true);
-        } else if ("M".equals(SendFunctionality.gender)) {
-            FEMALE.setChecked(false);
-            OTHER.setChecked(false);
-            MALE.setChecked(true);
+
+        sharedPreferences = getActivity().getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
+
+        String alias = sharedPreferences.getString(KEY_ALIAS, null);
+        String password = sharedPreferences.getString(KEY_PASSWORD, null);
+        String age = sharedPreferences.getString("AGE", null);
+        int gender = sharedPreferences.getInt("GENDER", -1);
+        int language = sharedPreferences.getInt("LANGUAGE", -1);
+
+        if(age != null){
+            AGE.setText(age);
         }
-        else if ("O".equals(SendFunctionality.gender)) {
-            MALE.setChecked(false);
-            FEMALE.setChecked(false);
-            OTHER.setChecked(true);
+        if(gender != -1){
+            GENDER.setSelection(gender);
         }
-        if ("T".equals(SendFunctionality.terms)) {
-            TERMS.setChecked(true);
+        if(language != -1){
+            LANGUAGE.setSelection(language);
         }
         return v;
     }
 
     @Override
     public void onClick(View view) {
-        RadioButton radio = (RadioButton) getView().findViewById(GENDER.getCheckedRadioButtonId());
 
-        SharedPreferences pref = getActivity().getSharedPreferences("StudentStressStudy", MODE_PRIVATE);
+        String ageText = AGE.getText().toString();
+        int genderText = GENDER.getSelectedItemPosition();
+        int languageText = LANGUAGE.getSelectedItemPosition();
 
-        String genderText = "";
-        if (radio != null) {
-            genderText = radio.getText().toString();
-        }
-        String gender;
-        switch (genderText) {
-            case "Femenino":
-            case "Femme":
-            case "Female":
-                gender = "F";
-                break;
-            case "Male":
-            case "Masculino":
-            case "Homme":
-                gender = "M";
-                break;
-            case "Other":
-            case "Autre":
-            case "Otro":
-                gender = "O";
-                break;
-            default:
-                gender = "";
-        }
-        String name = NAME.getText().toString();
-        String age = AGE.getText().toString();
-        String id = ID.getText().toString();
-        String weight = WEIGHT.getText().toString();
-        String height = HEIGHT.getText().toString();
-        String watch = WATCH.getText().toString();
-        String terms = TERMS.isChecked() ? "T" : "F";
+        // get the user data if it is not on the device
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        SendFunctionality.username = name;
-        SendFunctionality.age = age;
-        SendFunctionality.weight = weight;
-        SendFunctionality.height = height;
-        SendFunctionality.terms = terms;
-        SendFunctionality.device_id = id;
-        SendFunctionality.gender = gender;
-        SendFunctionality.watch = watch;
+        editor.putString("AGE", ageText);
+        editor.putInt("GENDER", genderText);
+        editor.putInt("LANGUAGE", languageText);
+        editor.apply();
 
-        if (SendFunctionality.device_id.isEmpty()) {
-            SendFunctionality.createUserData(getContext(),pref);
-        } else {
-            SendFunctionality.updateUserData(getContext(),pref);
-        }
+        Toast.makeText(getActivity(),"Updated!", Toast.LENGTH_SHORT).show();
 
     }
 }

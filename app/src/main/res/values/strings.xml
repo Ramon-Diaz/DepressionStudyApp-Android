@@ -74,6 +74,21 @@
         <item>2 Applied to me to a considerable degree or a good part of time</item>
         <item>3 Applied to me very much or most of the time</item>
     </string-array>
+    <string-array name="dropdown_gender">
+        <item>Female</item>
+        <item>Male</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="dropdown_language">
+        <item>A1 Beginner</item>
+        <item>A2 Elementary</item>
+        <item>B1 Intermediate</item>
+        <item>B2 Upper Intermediate</item>
+        <item>C1 Advanced</item>
+        <item>C2 Proficient</item>
+    </string-array>
+
     <string name="log_third">I couldn’t seem to experience any positive feeling at all.</string>
     <string name="log_eight">I felt that I was using a lot of nervous energy.</string>
     <string name="log_ninth">I was worried about situations in which I might panic and make a fool of myself.</string>
@@ -111,4 +126,5 @@
     <string name="alias_error">Alias is necessary!</string>
     <string name="gender_error">Gender is necessary!</string>
     <string name="user_created">User Created!</string>
+    <string name="language_prof">English Language Proficiency</string>
 </resources>
