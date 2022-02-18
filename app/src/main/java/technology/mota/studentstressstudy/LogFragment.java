@@ -2,17 +2,10 @@ package technology.mota.studentstressstudy;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.InputFilter;
-import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import android.widget.Spinner;
@@ -22,9 +15,18 @@ import androidx.fragment.app.Fragment;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.StringRequestListener;
 
-public class LogFragment extends Fragment implements View.OnClickListener {
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+public class LogFragment extends Fragment {
 
     private Spinner FIRST;
     private Spinner SECOND;
@@ -33,7 +35,6 @@ public class LogFragment extends Fragment implements View.OnClickListener {
     private Spinner FIFTH;
     private Spinner SIXTH;
     private Spinner SEVENTH;
-
     private Spinner EIGHT;
     private Spinner NINTH;
     private Spinner TENTH;
@@ -41,7 +42,6 @@ public class LogFragment extends Fragment implements View.OnClickListener {
     private Spinner TWELFTH;
     private Spinner THIRTEENTH;
     private Spinner FOURTEENTH;
-
     private Spinner FIFTEENTH;
     private Spinner SIXTEENTH;
     private Spinner SEVENTEENTH;
@@ -52,11 +52,14 @@ public class LogFragment extends Fragment implements View.OnClickListener {
 
     private Button SEND_LOG;
 
+    SharedPreferences sharedPreferences;
+    public static final String SHARED_PREF_NAME = "StudentStressStudy";
+    public static final String KEY_ALIAS = "alias";
+    public static final String KEY_PASSWORD = "password";
 
     public LogFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -74,8 +77,6 @@ public class LogFragment extends Fragment implements View.OnClickListener {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner1.setAdapter(adapter);
-
-        //spinner.getSelectedItem().toString()
 
         Spinner spinner2 = (Spinner) v.findViewById(R.id.spinner2);
         spinner2.setAdapter(adapter);
@@ -161,52 +162,99 @@ public class LogFragment extends Fragment implements View.OnClickListener {
 
         SEND_LOG = v.findViewById(R.id.sendLog);
 
-        SEND_LOG.setOnClickListener(this);
+        sharedPreferences = getActivity().getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
+        String alias = sharedPreferences.getString(KEY_ALIAS, null);
+        String password = sharedPreferences.getString(KEY_PASSWORD, null);
+
+        SEND_LOG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getActivity(),"Sending...", Toast.LENGTH_SHORT).show();
+
+                int firstText = FIRST.getSelectedItemPosition();
+                int secondText = SECOND.getSelectedItemPosition();
+                int thirdText = THIRD.getSelectedItemPosition();
+                int fourthText = FOURTH.getSelectedItemPosition();
+                int fifthText = FIFTH.getSelectedItemPosition();
+                int sixthText = SIXTH.getSelectedItemPosition();
+                int seventhText = SEVENTH.getSelectedItemPosition();
+                int eightText = EIGHT.getSelectedItemPosition();
+                int ninthText = NINTH.getSelectedItemPosition();
+                int tenthText = TENTH.getSelectedItemPosition();
+                int eleventhText = ELEVENTH.getSelectedItemPosition();
+                int twelfthText = TWELFTH.getSelectedItemPosition();
+                int thirteenthText = THIRTEENTH.getSelectedItemPosition();
+                int fourteenthText = FOURTEENTH.getSelectedItemPosition();
+                int fifteenthText = FIFTEENTH.getSelectedItemPosition();
+                int sixteenthText = SIXTEENTH.getSelectedItemPosition();
+                int seventeenthText = SEVENTEENTH.getSelectedItemPosition();
+                int eighteenthText = EIGHTEENTH.getSelectedItemPosition();
+                int nineteenthText = NINETEENTH.getSelectedItemPosition();
+                int twentiethText = TWENTIETH.getSelectedItemPosition();
+                int twentyfirstText = TWENTYFIRST.getSelectedItemPosition();
+
+                if (firstText == 0 || secondText == 0 || thirdText == 0 || fourthText == 0 || fifthText == 0 || sixthText == 0 || seventhText == 0 || eightText == 0 || ninthText == 0 || tenthText == 0 ||
+                        eleventhText == 0 || twelfthText == 0 || thirteenthText == 0 || fourteenthText == 0 || fifteenthText == 0 || sixteenthText == 0 || seventeenthText == 0 || eighteenthText == 0 || nineteenthText == 0 || twentiethText == 0 ||
+                        twentyfirstText == 0) {
+
+                    Toast.makeText(getContext(), "All fields must completed", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
+
+                    JSONObject data = new JSONObject();
+                    try{
+                        data.put("date", date);
+                        data.put("first", firstText);
+                        data.put("second", secondText);
+                        data.put("third", thirdText);
+                        data.put("fourth", fourthText);
+                        data.put("fifth", fifthText);
+                        data.put("sixth", sixthText);
+                        data.put("seventh", seventhText);
+                        data.put("eigth", eightText);
+                        data.put("ninth", ninthText);
+                        data.put("tenth", tenthText);
+                        data.put("eleventh", eleventhText);
+                        data.put("twelfth", twelfthText);
+                        data.put("thirteenth", thirteenthText);
+                        data.put("fourteenth", fourteenthText);
+                        data.put("fifteenth", fifteenthText);
+                        data.put("sixteenth", sixteenthText);
+                        data.put("seventeenth", seventeenthText);
+                        data.put("eighteenth", eighteenthText);
+                        data.put("nineteenth", nineteenthText);
+                        data.put("twentieth", twentiethText);
+                        data.put("twentyfirst", twentyfirstText);
+                    } catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                    // send the data
+                    AndroidNetworking.post("https://hypatia.cs.ualberta.ca/depression/index.php?action=log")
+                            .addBodyParameter("email", alias)
+                            .addBodyParameter("password", password)
+                            .addBodyParameter("data", data.toString())
+                            .setPriority(Priority.MEDIUM)
+                            .build()
+                            .getAsString(new StringRequestListener() {
+                                @Override
+                                public void onResponse(String response) {
+                                    Toast.makeText(getActivity(),"Succesful", Toast.LENGTH_SHORT).show();
+                                }
+                                @Override
+                                public void onError(ANError error) {
+                                    Toast.makeText(getActivity(), error.getErrorDetail(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), error.getErrorBody(), Toast.LENGTH_LONG).show();
+                                }
+                            });
+
+                }
+            }
+        });
 
         return v;
-    }
-
-    @Override
-    public void onClick(View view) {
-        //RadioButton first = getView().findViewById(FIRST.getCheckedRadioButtonId());
-
-        //RadioButton second = getView().findViewById(SECOND.getCheckedRadioButtonId());
-        //RadioButton third = getView().findViewById(THIRD.getCheckedRadioButtonId());
-        //RadioButton fourth = getView().findViewById(FOURTH.getCheckedRadioButtonId());
-        //RadioButton fifth = getView().findViewById(FIFTH.getCheckedRadioButtonId());
-        //RadioButton seventh = getView().findViewById(SEVENTH.getCheckedRadioButtonId());
-        //RadioButton sixth = getView().findViewById(SIXTH.getCheckedRadioButtonId());
-
-        Integer firstText = FIRST.getSelectedItemPosition();
-        Integer secondText = SECOND.getSelectedItemPosition();
-        Integer thirdText = THIRD.getSelectedItemPosition();
-        Integer fourthText = FOURTH.getSelectedItemPosition();
-        Integer fifthText = FIFTH.getSelectedItemPosition();
-        Integer sixthText = SIXTH.getSelectedItemPosition();
-
-        Integer seventhText = SEVENTH.getSelectedItemPosition();
-        Integer eightText = EIGHT.getSelectedItemPosition();
-        Integer ninthText = NINTH.getSelectedItemPosition();
-        Integer tenthText = TENTH.getSelectedItemPosition();
-        Integer eleventhText = ELEVENTH.getSelectedItemPosition();
-        Integer twelfthText = TWELFTH.getSelectedItemPosition();
-        Integer thirteenthText = THIRTEENTH.getSelectedItemPosition();
-        Integer fourteenthText = FOURTEENTH.getSelectedItemPosition();
-        Integer fifteenthText = FIFTEENTH.getSelectedItemPosition();
-        Integer sixteenthText = SIXTEENTH.getSelectedItemPosition();
-        Integer seventeenthText = SEVENTEENTH.getSelectedItemPosition();
-        Integer eighteenthText = EIGHTEENTH.getSelectedItemPosition();
-        Integer nineteenthText = NINETEENTH.getSelectedItemPosition();
-        Integer twentiethText = TWENTIETH.getSelectedItemPosition();
-        Integer twentyfirstText = TWENTYFIRST.getSelectedItemPosition();
-
-
-        if (!SendFunctionality.device_id.isEmpty()) {
-            SendFunctionality.sendLog(getContext(), firstText, secondText, thirdText, fourthText, fifthText, sixthText, seventhText, eightText, ninthText, tenthText, eleventhText, twelfthText, thirteenthText, fourteenthText, fifteenthText, sixteenthText, seventeenthText, eighteenthText, nineteenthText, twentiethText, twentyfirstText);
-        } else {
-            Toast.makeText(getContext(), "Fill profile data", Toast.LENGTH_SHORT).show();
-        }
-
     }
 
 }

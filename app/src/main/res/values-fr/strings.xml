@@ -49,7 +49,6 @@
     <string name="sendAudio">Envoyer l\'audio</string>
     <string name="removeAudio">Supprimer l\\\'audio</string>
     <string name="audioFreeText">Dans cette section, racontez-nous votre journée.</string>
-    <string name="recordingInstructions">A compléter deux fois par semaine.</string>
     <string name="customBtnText">Liberté d\\\'expression</string>
     <string name="textBtnText">Du texte</string>
     <string name="log_first">J’ai trouvé difficile de décompresser.</string>
@@ -86,7 +85,7 @@
     <string name="password_error">Le mot de passe est nécessaire!</string>
     <string name="password_error_2">Le mot de passe doit comporter plus de 6 caractères</string>
     <string name="reset_password">mot de passe oublié?</string>
-    <string name="email_prompt_reset">Veuillez envoyer un courriel à diazramo@ualberta.ca</string>
+    <string name="email_prompt_reset">Veuillez envoyer un courriel avec votre alias à diazramo@ualberta.ca</string>
     <string name="yes">Oui</string>
     <string name="reset_link_prompt">Lien de réinitialisation envoyé à votre courriel.</string>
     <string name="reset_link_prompt_error">"Le lien de réinitialisation n'a PAS été envoyé "</string>
@@ -94,4 +93,5 @@
     <string name="alias_error">Un alias est nécessaire !</string>
     <string name="gender_error">Le genre est nécessaire !</string>
     <string name="user_created">Utilisateur créé!</string>
+    <string name="title_wearables">Uploader</string>
 </resources>

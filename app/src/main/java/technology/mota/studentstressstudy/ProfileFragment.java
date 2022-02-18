@@ -1,6 +1,7 @@
 package technology.mota.studentstressstudy;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -17,7 +18,16 @@ import android.widget.Toast;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class ProfileFragment extends Fragment implements View.OnClickListener {
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.StringRequestListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class ProfileFragment extends Fragment {
 
     private EditText AGE;
     private Spinner GENDER;
@@ -62,8 +72,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         LANGUAGE = spinner_language;
 
         UPDATE = v.findViewById(R.id.update);
-        UPDATE.setOnClickListener(this);
-
+       // UPDATE.setOnClickListener(this);
 
         sharedPreferences = getActivity().getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
 
@@ -82,25 +91,80 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         if(language != -1){
             LANGUAGE.setSelection(language);
         }
+
+        AndroidNetworking.post("https://hypatia.cs.ualberta.ca/depression/index.php?action=info")
+                .addBodyParameter("email", alias)
+                .addBodyParameter("password", password)
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsString(new StringRequestListener() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        Toast.makeText(getActivity(), response, Toast.LENGTH_LONG).show();
+
+                    }
+                    @Override
+                    public void onError(ANError error) {
+                        Toast.makeText(getActivity(), error.getErrorDetail(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), error.getErrorBody(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+
+        UPDATE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // get the written text
+                String ageText = AGE.getText().toString();
+                int genderInt= GENDER.getSelectedItemPosition();
+                int languageInt = LANGUAGE.getSelectedItemPosition();
+                String genderText = GENDER.getSelectedItem().toString();
+                String languageText = LANGUAGE.getSelectedItem().toString();
+                // save it in a json object to later convert it to string
+
+                if(ageText == null || genderInt == 0 || languageInt == 0){
+                    Toast.makeText(getActivity(), "All fields must be completed", Toast.LENGTH_SHORT).show();
+                } else{
+
+                    JSONObject data = new JSONObject();
+                    try{
+                        data.put("age", ageText);
+                        data.put("gender", genderText);
+                        data.put("language", languageText);
+                    } catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                    // send the data
+                    AndroidNetworking.post("https://hypatia.cs.ualberta.ca/depression/index.php?action=info")
+                            .addBodyParameter("email", alias)
+                            .addBodyParameter("password", password)
+                            .addBodyParameter("data", data.toString())
+                            .setPriority(Priority.MEDIUM)
+                            .build()
+                            .getAsString(new StringRequestListener() {
+                                @Override
+                                public void onResponse(String response) {
+
+                                    // get the user data if it is not on the device
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("AGE", ageText);
+                                    editor.putInt("GENDER", genderInt);
+                                    editor.putInt("LANGUAGE", languageInt);
+                                    editor.apply();
+                                    Toast.makeText(getActivity(),"Updated!", Toast.LENGTH_SHORT).show();
+
+                                }
+                                @Override
+                                public void onError(ANError error) {
+                                    Toast.makeText(getActivity(), error.getErrorDetail(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), error.getErrorBody(), Toast.LENGTH_LONG).show();
+                                }
+                            });
+                }
+            }
+        });
         return v;
-    }
-
-    @Override
-    public void onClick(View view) {
-
-        String ageText = AGE.getText().toString();
-        int genderText = GENDER.getSelectedItemPosition();
-        int languageText = LANGUAGE.getSelectedItemPosition();
-
-        // get the user data if it is not on the device
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        editor.putString("AGE", ageText);
-        editor.putInt("GENDER", genderText);
-        editor.putInt("LANGUAGE", languageText);
-        editor.apply();
-
-        Toast.makeText(getActivity(),"Updated!", Toast.LENGTH_SHORT).show();
-
     }
 }

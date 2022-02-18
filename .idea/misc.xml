@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.3315" />
+        <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.3315" />
+        <entry key="app/src/main/res/drawable/ic_microphone_black_24dp.xml" value="0.3285" />
+        <entry key="app/src/main/res/drawable/ic_upload_black_24dp.xml" value="0.3285" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.2285809906291834" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.20252732240437157" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.26856884057971014" />
         <entry key="app/src/main/res/layout/activity_login2.xml" value="0.26403985507246375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21784420289855072" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.26403985507246375" />
+        <entry key="app/src/main/res/layout/activity_upload.xml" value="0.1" />
         <entry key="app/src/main/res/layout/audio_player.xml" value="0.21784420289855072" />
         <entry key="app/src/main/res/layout/fragment_information.xml" value="0.22644927536231885" />
         <entry key="app/src/main/res/layout/fragment_log.xml" value="0.24099485420240138" />

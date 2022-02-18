@@ -1,6 +1,8 @@
 package technology.mota.studentstressstudy;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
@@ -10,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Handler;
 import android.os.SystemClock;
@@ -21,14 +25,25 @@ import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.StringRequestListener;
+import com.androidnetworking.interfaces.UploadProgressListener;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 public class RecordingCustomFragment extends Fragment implements View.OnClickListener {
     private ImageButton recordBtn;
@@ -64,9 +79,16 @@ public class RecordingCustomFragment extends Fragment implements View.OnClickLis
     private MediaPlayer mediaPlayer = null;
     private boolean isPlaying = false;
 
+    SharedPreferences sharedPreferences;
+    public static final String SHARED_PREF_NAME = "StudentStressStudy";
+    public static final String KEY_ALIAS = "alias";
+    public static final String KEY_PASSWORD = "password";
+
     public RecordingCustomFragment() {
         // Required empty public constructor
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,10 +107,85 @@ public class RecordingCustomFragment extends Fragment implements View.OnClickLis
         removeBtn = v.findViewById(R.id.removeFile);
         sendBtn = v.findViewById(R.id.sendFile);
 
+        sharedPreferences = getActivity().getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+
+        String alias = sharedPreferences.getString(KEY_ALIAS, null);
+        String password = sharedPreferences.getString(KEY_PASSWORD, null);
+
+
         playerSeekbar = v.findViewById(R.id.player_seekbar);
         /* Setting up on click listener
            - Class must implement 'View.OnClickListener' and override 'onClick' method
          */
+        TextView question =  v.findViewById(R.id.freeRecordingDesc);
+        int random = new Random().nextInt(21);
+
+        switch ( random ) {
+            case 1:
+                question.setText(R.string.question_1);
+                break;
+            case 2:
+                question.setText(R.string.question_2);
+                break;
+            case 3:
+                question.setText(R.string.question_3);
+                break;
+            case 4:
+                question.setText(R.string.question_4);
+                break;
+            case 5:
+                question.setText(R.string.question_5);
+                break;
+            case 6:
+                question.setText(R.string.question_6);
+                break;
+            case 7:
+                question.setText(R.string.question_7);
+                break;
+            case 8:
+                question.setText(R.string.question_8);
+                break;
+            case 9:
+                question.setText(R.string.question_9);
+                break;
+            case 10:
+                question.setText(R.string.question_10);
+                break;
+            case 11:
+                question.setText(R.string.question_11);
+                break;
+            case 12:
+                question.setText(R.string.question_12);
+                break;
+            case 13:
+                question.setText(R.string.question_13);
+                break;
+            case 14:
+                question.setText(R.string.question_14);
+                break;
+            case 15:
+                question.setText(R.string.question_15);
+                break;
+            case 16:
+                question.setText(R.string.question_16);
+                break;
+            case 17:
+                question.setText(R.string.question_17);
+                break;
+            case 18:
+                question.setText(R.string.question_18);
+                break;
+            case 19:
+                question.setText(R.string.question_19);
+                break;
+            case 20:
+                question.setText(R.string.question_20);
+                break;
+            case 21:
+                question.setText(R.string.question_21);
+                break;
+        }
+
 
         bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
@@ -121,7 +218,33 @@ public class RecordingCustomFragment extends Fragment implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                SendFunctionality.sendFile(getContext(), fileToPlay.getAbsolutePath());
+                //SendFunctionality.sendFile(getContext(), fileToPlay.getAbsolutePath());
+
+                AndroidNetworking.upload("https://hypatia.cs.ualberta.ca/depression/index.php?action=voice")
+                        // to send the audio file
+                        .addMultipartParameter("email", alias)
+                        .addMultipartParameter("password", password)
+                        .addMultipartFile("data", fileToPlay)
+                        .setPriority(Priority.HIGH)
+                        .build()
+                        .setUploadProgressListener(new UploadProgressListener() {
+                            @Override
+                            public void onProgress(long bytesUploaded, long totalBytes) {
+                                // do anything with progress
+                            }
+                        })
+                        .getAsString(new StringRequestListener() {
+                            @Override
+                            public void onResponse(String response) {
+                                Toast.makeText(getActivity(),"Succesful Upload", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), response, Toast.LENGTH_SHORT).show();
+                            }
+                            @Override
+                            public void onError(ANError error) {
+                                Toast.makeText(getActivity(), error.getErrorDetail(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), error.getErrorBody(), Toast.LENGTH_LONG).show();
+                            }
+                        });
             }
         });
         removeBtn.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +276,8 @@ public class RecordingCustomFragment extends Fragment implements View.OnClickLis
         });
 
         recordBtn.setOnClickListener(this);
+
+
 
         return v;
     }

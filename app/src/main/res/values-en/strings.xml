@@ -49,7 +49,6 @@
     <string name="sendAudio">Send audio</string>
     <string name="removeAudio">Remove audio</string>
     <string name="audioFreeText">In this section, tell us about your day</string>
-    <string name="recordingInstructions">Complete twice per week</string>
     <string name="customBtnText">Free Speech</string>
     <string name="textBtnText">Text Recording</string>
     <string name="log_first">I found it hard to wind down.</string>
@@ -86,7 +85,7 @@
     <string name="password_error">Password is necessary!</string>
     <string name="password_error_2">Password must be more than 6 characters</string>
     <string name="reset_password">Forgot Password?</string>
-    <string name="email_prompt_reset">Please send an email to diazramo@ualberta.ca</string>
+    <string name="email_prompt_reset">Please send an email with your alias to diazramo@ualberta.ca</string>
     <string name="yes">Yes</string>
     <string name="reset_link_prompt">Reset link sent to your email.</string>
     <string name="reset_link_prompt_error">"Reset link was NOT sent "</string>
@@ -94,5 +93,7 @@
     <string name="alias_error">Alias is necessary!</string>
     <string name="gender_error">Gender is necessary!</string>
     <string name="user_created">User Created!</string>
+    <string name="title_wearables">Upload</string>
+    <string name="audioText_" translatable="true">"Please call Stella.  Ask her to bring these things with her from the store:  Six spoons of fresh snow peas, five thick slabs of blue cheese, and maybe a snack for her brother Bob.  We also need a small plastic snake and a big toy frog for the kids.  She can scoop these things into three red bags, and we will go meet her Wednesday at the train station. "</string>
 
 </resources>

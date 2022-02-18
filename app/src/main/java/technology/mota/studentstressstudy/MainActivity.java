@@ -38,7 +38,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
     // The state of connection
 //    private HealthDataStore mStore;
 //    private HealthConnectionErrorResult mConnError;
@@ -57,11 +57,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String KEY_PASSWORD = "password";
 
     // button logout
-    Button bLogout;
+    //Button bLogout;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -111,6 +110,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     transaction.addToBackStack(null);
                     transaction.commit();
                     return true;
+                case R.id.navigation_upload:
+                    Fragment upload = fragmentManager.findFragmentByTag("upload");
+                    if (upload == null) {
+                        upload = new UploadFragment();
+                    }
+                    transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.fragment, upload, "upload");
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN); //setting animation for fragment transaction
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                    return true;
             }
             return false;
         }
@@ -126,8 +136,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         // button listener logout
-        bLogout = (Button) findViewById(R.id.bLogout);
-        bLogout.setOnClickListener(this);
+        //bLogout = (Button) findViewById(R.id.bLogout);
+        //bLogout.setOnClickListener(this);
 
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
 
@@ -200,16 +210,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.bLogout:
-                // logout from firebase
-                //FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), Login.class));
-                break;
-        }
-    }
+//    @Override
+//    public void onClick(View view) {
+//        switch (view.getId()){
+//            case R.id.bLogout:
+//
+//                startActivity(new Intent(getApplicationContext(), Login.class));
+//                break;
+//        }
+//    }
 
 //    @Override
 //    public void onDestroy() {
@@ -258,13 +267,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                }
 //            };
 
-    private void showPermissionAlarmDialog() {
-        if (isFinishing()) {
-            return;
-        }
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        alert.setTitle(R.string.notice).setMessage(R.string.msg_perm_acquired).setPositiveButton(R.string.ok, null).show();
-    }
+//    private void showPermissionAlarmDialog() {
+//        if (isFinishing()) {
+//            return;
+//        }
+//        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+//        alert.setTitle(R.string.notice).setMessage(R.string.msg_perm_acquired).setPositiveButton(R.string.ok, null).show();
+//    }
 
 //    private void showConnectionFailureDialog(final HealthConnectionErrorResult error) {
 //        if (isFinishing()) {
@@ -351,13 +360,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(android.view.MenuItem item) {
-//        if (item.getItemId() == R.id.connect) {
-//            requestPermission();
-//        }
-//        return true;
-//    }
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        if (item.getItemId() == R.id.logout) {
+            //requestPermission();
+            startActivity(new Intent(getApplicationContext(),
+                    Login.class));
+        }
+        return true;
+    }
 //
 //    @Override
 //    public void onBackPressed() {

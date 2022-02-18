@@ -17,6 +17,10 @@
         android:id="@+id/navigation_voice"
         android:icon="@drawable/ic_microphone_black_24dp"
         android:title="@string/title_voice" />
+    <item
+        android:id="@+id/navigation_upload"
+        android:icon="@drawable/ic_upload_black_24dp"
+        android:title="@string/title_wearables" />
 
 
 </menu>

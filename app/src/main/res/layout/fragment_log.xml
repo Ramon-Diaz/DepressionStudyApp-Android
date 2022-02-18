@@ -24,19 +24,18 @@
         app:cardMaxElevation="10dp">
 
         <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
                 android:gravity="center"
-                >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/log_instructions"
@@ -65,7 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_second"
@@ -79,7 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_third"
@@ -93,7 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
 
                 <TextView
@@ -108,7 +107,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_fifth"
@@ -122,7 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_sixth"
@@ -136,7 +135,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_seventh"
@@ -150,7 +149,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_eight"
@@ -164,7 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_ninth"
@@ -178,7 +177,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_tenth"
@@ -192,7 +191,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_eleventh"
@@ -206,7 +205,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
+
                 <TextView
                     android:id="@+id/log_twelfth"
                     android:layout_width="match_parent"
@@ -219,7 +219,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
+
                 <TextView
                     android:id="@+id/log_thirteenth"
                     android:layout_width="match_parent"
@@ -232,7 +233,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
+
                 <TextView
                     android:id="@+id/log_fourteenth"
                     android:layout_width="match_parent"
@@ -245,7 +247,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_fifteenth"
@@ -259,7 +261,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_sixteenth"
@@ -273,7 +275,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_seventeenth"
@@ -287,7 +289,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_eighteenth"
@@ -301,7 +303,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_nineteenth"
@@ -315,7 +317,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_twentieth"
@@ -329,7 +331,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/log_twentyfirst"
@@ -343,7 +345,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"/>
+                    android:spinnerMode="dropdown" />
 
                 <Button
                     android:id="@+id/sendLog"

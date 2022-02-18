@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import java.util.Random;
+
 
 public class InformationFragment extends Fragment {
 
@@ -27,8 +29,11 @@ public class InformationFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_information, container, false);
         TextView advice =  v.findViewById(R.id.advice);
-        SharedPreferences pref = getActivity().getSharedPreferences("StudentStressStudy", MODE_PRIVATE);
-        switch (pref.getInt("ADVICE",1)) {
+       // SharedPreferences pref = getActivity().getSharedPreferences("StudentStressStudy", MODE_PRIVATE);
+        //switch (pref.getInt("ADVICE",1)) {
+        int random = new Random().nextInt(9) + 1;
+
+        switch ( random ){
             case 2:
                 advice.setText(R.string.advice_2);
                 break;

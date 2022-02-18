@@ -51,7 +51,7 @@
     <string name="sendAudio">Send audio</string>
     <string name="removeAudio">Remove audio</string>
     <string name="audioFreeText">In this section, tell us about your day</string>
-    <string name="recordingInstructions">Complete twice per week</string>
+    <string name="recordingInstructions">Please go through both</string>
     <string name="customBtnText">Free Speech</string>
     <string name="textBtnText">Text Recording</string>
     <string name="user_name" translatable="false">Alias</string>
@@ -63,24 +63,26 @@
     <string name="log_sixth">I tended to over-react to situations.</string>
     <string name="log_seventh">I experienced trembling (e.g. in the hands).</string>
 
-    <string name="audioText" translatable="false">"Los participantes en la conferencia fueron después a El Escorial. Arrivaron ahí en autobús, donde un guía les explicó los monumentos mas representativos del viaje. La visita al monasterio fué comentada por el mismo guia, que debe conocer mucho de El Greco, cuya imagen "El martirio de San Mauricio" ha sido extensamente comentada; su conocimiento del resto de las imagenes en el museo no debe ser el mismo, ya que los atravesó de forma rápida, dando lugar a sonrisas." [1]</string>
-    <string name="audioRef" translatable="false">[1] Montero, J. M., Gutiérrez-Arriola, J., Palazuelos, S., Enríquez, E., Aguilera, S., and Pardo, J. M., "Emotional Speech Synthesis: From Speech Database to TTS", Proc. of ICSLP’98, pp. 923-925, Sydney, Australia, 1998.</string>
+    <string name="audioRef">[1] Montero, J. M., Gutiérrez-Arriola, J., Palazuelos, S., Enríquez, E., Aguilera, S., and Pardo, J. M., "Emotional Speech Synthesis: From Speech Database to TTS", Proc. of ICSLP’98, pp. 923-925, Sydney, Australia, 1998.</string>
 
     <string name="ok" translatable="false">OK</string>
 
     <string-array name="dropdown_array">
+        <item>- </item>
         <item>0 Did not apply to me at all</item>
         <item>1 Applied to me to some degree, or some of the time</item>
         <item>2 Applied to me to a considerable degree or a good part of time</item>
         <item>3 Applied to me very much or most of the time</item>
     </string-array>
     <string-array name="dropdown_gender">
+        <item>- </item>
         <item>Female</item>
         <item>Male</item>
         <item>Other</item>
     </string-array>
 
     <string-array name="dropdown_language">
+        <item>- </item>
         <item>A1 Beginner</item>
         <item>A2 Elementary</item>
         <item>B1 Intermediate</item>
@@ -118,7 +120,7 @@
     <string name="password_error">Password is necessary!</string>
     <string name="password_error_2">Password must be more than 6 characters</string>
     <string name="reset_password">Forgot Password?</string>
-    <string name="email_prompt_reset">Please send an email to diazramo@ualberta.ca</string>
+    <string name="email_prompt_reset">Please send an email with your alias to diazramo@ualberta.ca</string>
     <string name="yes">Yes</string>
     <string name="reset_link_prompt">Reset link sent to your email.</string>
     <string name="reset_link_prompt_error">Reset link was NOT sent</string>
@@ -127,4 +129,27 @@
     <string name="gender_error">Gender is necessary!</string>
     <string name="user_created">User Created!</string>
     <string name="language_prof">English Language Proficiency</string>
+    <string name="title_wearables">Upload</string>
+    <string name="question_1">What kind of things do you enjoy?</string>
+    <string name="question_2">Some people prefer to spend time with other people, while others prefer to work and do things alone. How would you describe yourself?</string>
+    <string name="question_3">Do you usually avoid taking chances or trying new activities because you’re worried about embarrassing yourself? Why?</string>
+    <string name="question_4">Do you often turn to others for advice about everyday decisions like what to have for lunch or what clothes to buy?</string>
+    <string name="question_5">Some people turn to others to make decisions about important areas of their life. For example, they let someone else decide whether they should take a job, who their friends should be, etc. Does this sound like your life?</string>
+    <string name="question_6">Do you usually need help from somebody else to get started on a project or do things on your own? Why is that?</string>
+    <string name="question_7">After you pay your bills, what kinds of things do you like to spend money on? Are you slow to spend money on yourself?</string>
+    <string name="question_8">Some people worry so much about something terrible happening in the future, that they hold on to all their money. Does this sound like you? Tell me about that.</string>
+    <string name="question_9">When you have a chance to do something that’s fun, is it hard to enjoy it? Have you always been this way?</string>
+    <string name="question_10">Is it hard for you to admit that you’ve had a good time? Have you always been this way?</string>
+    <string name="question_11">Do you usually turn down opportunities to have a good time? Why is this?</string>
+    <string name="question_12">Would you call yourself a workaholic? Why or why not?</string>
+    <string name="question_13">Have others complained about how much time you spend working? Why do you think is that?</string>
+    <string name="question_14">Do you enjoy a job that requires a lot of interaction with other people, or do you try to avoid that kind of work? Why is that?</string>
+    <string name="question_15">Have you ever turned down a job or promotion because it involved more contact with people? Why is that?</string>
+    <string name="question_16">What motivates you? What are you passionate about?</string>
+    <string name="question_17">Not everyone agrees all the time. Have you had a peer, teammate or friend disagree with you? What did you do?</string>
+    <string name="question_18">Give an example of a time you have gone over and above to achieve something. Why was it important for you to achieve this?</string>
+    <string name="question_19">Sometimes things don’t always go to plan. Describe a time when you failed in something? What did you do? How did that make you feel?</string>
+    <string name="question_20">Tell me about your social life. What have you been doing together with other people?</string>
+    <string name="question_21">How do you feel about the way things are going for you?</string>
+    <string name="audioText_">"Please call Stella.  Ask her to bring these things with her from the store:  Six spoons of fresh snow peas, five thick slabs of blue cheese, and maybe a snack for her brother Bob.  We also need a small plastic snake and a big toy frog for the kids.  She can scoop these things into three red bags, and we will go meet her Wednesday at the train station. "</string>
 </resources>

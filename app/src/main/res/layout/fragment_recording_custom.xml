@@ -14,7 +14,8 @@ android:layout_height="match_parent"
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="378dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,12 +29,12 @@ android:layout_height="match_parent"
                 android:id="@+id/freeRecordingDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
                 android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="16dp"
                 android:paddingTop="5dp"
-                android:text="@string/audioFreeText"
+                android:text="@string/question_1"
                 android:textSize="18sp" />
 
             <TextView
