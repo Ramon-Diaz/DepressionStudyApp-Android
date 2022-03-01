@@ -247,6 +247,7 @@ public class RecordingCustomFragment extends Fragment implements View.OnClickLis
                         });
             }
         });
+
         removeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -403,7 +404,7 @@ public class RecordingCustomFragment extends Fragment implements View.OnClickLis
         Date now = new Date();
 
         //initialize filename variable with date and time at the end to ensure the new file wont overwrite previous file
-        recordFile = "Recording_custom_" + SendFunctionality.device_id + "_" + formatter.format(now) + ".3gp";
+        recordFile = "Recording_question" + "_" + formatter.format(now) + ".3gp";
 
         filenameText.setText("Recording, File Name : " + recordFile);
 

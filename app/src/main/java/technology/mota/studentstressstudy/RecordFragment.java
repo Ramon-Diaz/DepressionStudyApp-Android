@@ -1,6 +1,7 @@
 package technology.mota.studentstressstudy;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
@@ -26,7 +27,13 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.StringRequestListener;
+import com.androidnetworking.interfaces.UploadProgressListener;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.io.File;
@@ -72,6 +79,11 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
     private MediaPlayer mediaPlayer = null;
     private boolean isPlaying = false;
 
+    SharedPreferences sharedPreferences;
+    public static final String SHARED_PREF_NAME = "StudentStressStudy";
+    public static final String KEY_ALIAS = "alias";
+    public static final String KEY_PASSWORD = "password";
+
     public RecordFragment() {
         // Required empty public constructor
     }
@@ -92,6 +104,11 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
         playerFilename = v.findViewById(R.id.player_filename);
         removeBtn = v.findViewById(R.id.removeFile);
         sendBtn = v.findViewById(R.id.sendFile);
+
+        sharedPreferences = getActivity().getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+
+        String alias = sharedPreferences.getString(KEY_ALIAS, null);
+        String password = sharedPreferences.getString(KEY_PASSWORD, null);
 
         playerSeekbar = v.findViewById(R.id.player_seekbar);
         /* Setting up on click listener
@@ -129,7 +146,33 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View v) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                SendFunctionality.sendFile(getContext(), fileToPlay.getAbsolutePath());
+                // SendFunctionality.sendFile(getContext(), fileToPlay.getAbsolutePath());
+
+                AndroidNetworking.upload("https://hypatia.cs.ualberta.ca/depression/index.php?action=voice")
+                        // to send the audio file
+                        .addMultipartParameter("email", alias)
+                        .addMultipartParameter("password", password)
+                        .addMultipartFile("data", fileToPlay)
+                        .setPriority(Priority.HIGH)
+                        .build()
+                        .setUploadProgressListener(new UploadProgressListener() {
+                            @Override
+                            public void onProgress(long bytesUploaded, long totalBytes) {
+                                // do anything with progress
+                            }
+                        })
+                        .getAsString(new StringRequestListener() {
+                            @Override
+                            public void onResponse(String response) {
+                                Toast.makeText(getActivity(),"Succesful Upload", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), response, Toast.LENGTH_SHORT).show();
+                            }
+                            @Override
+                            public void onError(ANError error) {
+                                Toast.makeText(getActivity(), error.getErrorDetail(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), error.getErrorBody(), Toast.LENGTH_LONG).show();
+                            }
+                        });
             }
         });
         removeBtn.setOnClickListener(new View.OnClickListener() {
@@ -286,7 +329,7 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
         Date now = new Date();
 
         //initialize filename variable with date and time at the end to ensure the new file wont overwrite previous file
-        recordFile = "Recording_text_" + SendFunctionality.device_id + "_" + formatter.format(now) + ".3gp";
+        recordFile = "Recording_text" + "_" + formatter.format(now) + ".3gp";
 
         filenameText.setText("Recording, File Name : " + recordFile);
 
