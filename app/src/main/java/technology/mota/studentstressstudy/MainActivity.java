@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         String alias = sharedPreferences.getString(KEY_ALIAS, null);
         String password = sharedPreferences.getString(KEY_PASSWORD, null);
 
-        Toast.makeText(MainActivity.this, "User: " + alias ,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(MainActivity.this, "User: " + alias ,Toast.LENGTH_SHORT).show();
 
         // Create a HealthDataStore instance and set its listener
 //        mStore = new HealthDataStore(this, mConnectionListener);

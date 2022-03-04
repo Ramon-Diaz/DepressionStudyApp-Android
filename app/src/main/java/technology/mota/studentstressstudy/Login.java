@@ -80,11 +80,12 @@ public class Login extends AppCompatActivity {
                         .getAsString(new StringRequestListener() {
                             @Override
                             public void onResponse(String response) {
-                                Toast.makeText(Login.this, response.toString(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Login.this, response.toString(), Toast.LENGTH_SHORT).show();
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString(KEY_ALIAS, alias);
                                 editor.putString(KEY_PASSWORD, password);
                                 editor.apply();
+                                progressBar.setVisibility(View.GONE);
                                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
                             }
                             @Override

@@ -18,7 +18,6 @@ import java.util.Random;
 
 public class InformationFragment extends Fragment {
 
-
     public InformationFragment() {
         // Required empty public constructor
     }

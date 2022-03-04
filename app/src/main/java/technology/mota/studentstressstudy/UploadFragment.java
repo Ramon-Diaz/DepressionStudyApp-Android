@@ -1,23 +1,12 @@
 package technology.mota.studentstressstudy;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-
 import android.Manifest;
-import android.content.ContentResolver;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.DocumentsContract;
-import android.provider.MediaStore;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,20 +17,18 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
 import com.androidnetworking.interfaces.UploadProgressListener;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 
 public class UploadFragment extends Fragment {
 
@@ -62,6 +49,8 @@ public class UploadFragment extends Fragment {
     public static final String KEY_PASSWORD = "password";
 
     ProgressBar progressBar;
+
+    private CoordinatorLayout coordinatorLayout;
 
     public UploadFragment() {
         // Required empty public constructor
@@ -84,18 +73,17 @@ public class UploadFragment extends Fragment {
 
         progressBar = v.findViewById(R.id.progressBar);
 
+        coordinatorLayout = v.findViewById(R.id.coordinator_layout_upload);
+
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 if(checkPermission()){
                     Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
                     chooseFile.setType("*/*");
                     chooseFile = Intent.createChooser(chooseFile, "Choose a file");
                     startActivityForResult(chooseFile, REQ_CODE);
                 }
-
             }
         });
 
@@ -121,14 +109,12 @@ public class UploadFragment extends Fragment {
                         .getAsString(new StringRequestListener() {
                             @Override
                             public void onResponse(String response) {
-                                Toast.makeText(getActivity(),"Succesful Upload", Toast.LENGTH_SHORT).show();
-                                Toast.makeText(getActivity(), response, Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
+                                showSnackbar();
                             }
                             @Override
                             public void onError(ANError error) {
                                 Toast.makeText(getActivity(), error.getErrorDetail(), Toast.LENGTH_SHORT).show();
-                                //Toast.makeText(getActivity(), error.getErrorBody(), Toast.LENGTH_LONG).show();
                                 progressBar.setVisibility(View.GONE);
                             }
                         });
@@ -138,7 +124,10 @@ public class UploadFragment extends Fragment {
         return v;
     }
 
-
+    public void showSnackbar(){
+        Snackbar snackbar = Snackbar.make(coordinatorLayout, "Successful Upload", Snackbar.LENGTH_LONG);
+        snackbar.show();
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

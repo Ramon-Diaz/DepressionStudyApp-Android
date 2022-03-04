@@ -11,6 +11,7 @@ import android.widget.Toast;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -19,6 +20,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -57,6 +59,8 @@ public class LogFragment extends Fragment {
     public static final String KEY_ALIAS = "alias";
     public static final String KEY_PASSWORD = "password";
 
+    private CoordinatorLayout coordinatorLayout;
+
     public LogFragment() {
         // Required empty public constructor
     }
@@ -67,6 +71,7 @@ public class LogFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_log, container, false);
 
+        coordinatorLayout = v.findViewById(R.id.coordinator_layout_log);
         /////////////////////////////////////////////////
         //get the spinner from the xml.
         Spinner spinner1 = (Spinner) v.findViewById(R.id.spinner1);
@@ -241,7 +246,7 @@ public class LogFragment extends Fragment {
                             .getAsString(new StringRequestListener() {
                                 @Override
                                 public void onResponse(String response) {
-                                    Toast.makeText(getActivity(),"Succesful", Toast.LENGTH_SHORT).show();
+                                    showSnackbar();
                                 }
                                 @Override
                                 public void onError(ANError error) {
@@ -255,6 +260,11 @@ public class LogFragment extends Fragment {
         });
 
         return v;
+    }
+
+    public void showSnackbar(){
+        Snackbar snackbar = Snackbar.make(coordinatorLayout, "Uploaded", Snackbar.LENGTH_LONG);
+        snackbar.show();
     }
 
 }

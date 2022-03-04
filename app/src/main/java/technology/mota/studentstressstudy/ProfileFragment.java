@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,6 +42,8 @@ public class ProfileFragment extends Fragment {
     public static final String KEY_ALIAS = "alias";
     public static final String KEY_PASSWORD = "password";
 
+    private CoordinatorLayout coordinatorLayout;
+
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -49,6 +53,8 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_profile, container, false);
+
+        coordinatorLayout = v.findViewById(R.id.coordinator_layout_profile);
 
         AGE = v.findViewById(R.id.age);
 
@@ -92,26 +98,6 @@ public class ProfileFragment extends Fragment {
             LANGUAGE.setSelection(language);
         }
 
-        AndroidNetworking.post("https://hypatia.cs.ualberta.ca/depression/index.php?action=info")
-                .addBodyParameter("email", alias)
-                .addBodyParameter("password", password)
-                .setPriority(Priority.MEDIUM)
-                .build()
-                .getAsString(new StringRequestListener() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        Toast.makeText(getActivity(), response, Toast.LENGTH_LONG).show();
-
-                    }
-                    @Override
-                    public void onError(ANError error) {
-                        Toast.makeText(getActivity(), error.getErrorDetail(), Toast.LENGTH_SHORT).show();
-                        Toast.makeText(getActivity(), error.getErrorBody(), Toast.LENGTH_LONG).show();
-                    }
-                });
-
-
         UPDATE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -153,7 +139,8 @@ public class ProfileFragment extends Fragment {
                                     editor.putInt("GENDER", genderInt);
                                     editor.putInt("LANGUAGE", languageInt);
                                     editor.apply();
-                                    Toast.makeText(getActivity(),"Updated!", Toast.LENGTH_SHORT).show();
+
+                                    showSnackbar();
 
                                 }
                                 @Override
@@ -166,5 +153,10 @@ public class ProfileFragment extends Fragment {
             }
         });
         return v;
+    }
+
+    public void showSnackbar(){
+        Snackbar snackbar = Snackbar.make(coordinatorLayout, "Updated", Snackbar.LENGTH_LONG);
+        snackbar.show();
     }
 }
