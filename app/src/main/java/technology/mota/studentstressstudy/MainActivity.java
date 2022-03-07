@@ -56,9 +56,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String KEY_ALIAS = "alias";
     public static final String KEY_PASSWORD = "password";
 
-    // button logout
-    //Button bLogout;
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -135,10 +132,6 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        // button listener logout
-        //bLogout = (Button) findViewById(R.id.bLogout);
-        //bLogout.setOnClickListener(this);
-
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
 
         String alias = sharedPreferences.getString(KEY_ALIAS, null);
@@ -168,31 +161,31 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
 
-        PackageManager pm = this.getPackageManager();
-        ComponentName receiver = new ComponentName(this, BootReceiver.class);
-        Intent alarmIntent = new Intent(this, NotificationReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
-        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        //region Enable Daily Notifications
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 19);
-        calendar.set(Calendar.MINUTE, 1);
-        calendar.set(Calendar.SECOND, 1);
-        // if notification time is before selected time, send notification the next day
-        if (calendar.before(Calendar.getInstance())) {
-            calendar.add(Calendar.DATE, 1);
-        }
-        if (manager != null) {
-            manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                    AlarmManager.INTERVAL_DAY, pendingIntent);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    manager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-            }
-        }
-        //To enable Boot Receiver class
-        pm.setComponentEnabledSetting(receiver, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+//        PackageManager pm = this.getPackageManager();
+//        ComponentName receiver = new ComponentName(this, BootReceiver.class);
+//        Intent alarmIntent = new Intent(this, NotificationReceiver.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
+//        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+//
+//        //region Enable Daily Notifications
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTimeInMillis(System.currentTimeMillis());
+//        calendar.set(Calendar.HOUR_OF_DAY, 19);
+//        calendar.set(Calendar.MINUTE, 1);
+//        calendar.set(Calendar.SECOND, 1);
+//        // if notification time is before selected time, send notification the next day
+//        if (calendar.before(Calendar.getInstance())) {
+//            calendar.add(Calendar.DATE, 1);
+//        }
+//        if (manager != null) {
+//            manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+//                    AlarmManager.INTERVAL_DAY, pendingIntent);
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                    manager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+//            }
+//        }
+//        //To enable Boot Receiver class
+//        pm.setComponentEnabledSetting(receiver, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 
 //        // get data saved in device
 //        SharedPreferences pref = getSharedPreferences("StudentStressStudy", MODE_PRIVATE);

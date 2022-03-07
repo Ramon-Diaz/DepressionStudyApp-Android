@@ -1,97 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
+    android:id="@+id/coordinator_layout_message_record_question"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".RecordingCustomFragment">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="450dp">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="450dp">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            app:cardBackgroundColor="#12F3EFEF"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="6dp"
-            app:cardMaxElevation="10dp"
-            app:cardPreventCornerOverlap="false"
-            app:cardUseCompatPadding="true"
-            app:contentPadding="20dp">
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/freeRecordingDesc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="16dp"
-                android:paddingTop="5dp"
-                android:text="@string/question_1"
-                android:textSize="18sp" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    app:cardBackgroundColor="#12F3EFEF"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="6dp"
+                    app:cardMaxElevation="10dp"
+                    app:cardPreventCornerOverlap="false"
+                    app:cardUseCompatPadding="true"
+                    app:contentPadding="20dp">
 
-            <TextView
-                android:id="@+id/record_filename"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                android:gravity="center"
-                android:lineHeight="32dp"
-                android:text="@string/audioDesc"
-                android:textAlignment="center"
-                android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/freeRecordingDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="16dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/question_1"
+                        android:textSize="18sp" />
 
-            <Chronometer
-                android:id="@+id/record_timer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:gravity="center"
-                android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/record_filename"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-            <ImageButton
-                android:id="@+id/record_btn"
-                android:layout_width="148dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="12dp"
-                android:src="@drawable/record_btn_stopped" />
+                        android:gravity="center"
+                        android:lineHeight="32dp"
+                        android:text="@string/audioDesc"
+                        android:textAlignment="center"
+                        android:textSize="12sp" />
 
-        </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    <Chronometer
+                        android:id="@+id/record_timer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:textSize="14sp" />
 
-        </LinearLayout>
-    </ScrollView>
+                    <ImageButton
+                        android:id="@+id/record_btn"
+                        android:layout_width="148dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/record_btn_stopped" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-<include
-    layout="@layout/audio_player"
-    app:layout_constraintTop_toBottomOf="@+id/record_btn" />
+                </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            layout="@layout/audio_player"
+            app:layout_constraintTop_toBottomOf="@+id/record_btn" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

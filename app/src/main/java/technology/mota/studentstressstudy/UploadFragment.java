@@ -111,6 +111,7 @@ public class UploadFragment extends Fragment {
                             public void onResponse(String response) {
                                 progressBar.setVisibility(View.GONE);
                                 showSnackbar();
+                                btnUpload.setEnabled(false);
                             }
                             @Override
                             public void onError(ANError error) {

@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -33,6 +34,7 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
 import com.androidnetworking.interfaces.UploadProgressListener;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -84,17 +86,20 @@ public class RecordingCustomFragment extends Fragment implements View.OnClickLis
     public static final String KEY_ALIAS = "alias";
     public static final String KEY_PASSWORD = "password";
 
+    private CoordinatorLayout coordinatorLayout;
+
     public RecordingCustomFragment() {
         // Required empty public constructor
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_recording_custom, container, false);
+
+        coordinatorLayout = v.findViewById(R.id.coordinator_layout_message_record_question);
+
         recordBtn = v.findViewById(R.id.record_btn);
         timer = v.findViewById(R.id.record_timer);
         filenameText = v.findViewById(R.id.record_filename);
@@ -218,7 +223,6 @@ public class RecordingCustomFragment extends Fragment implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                //SendFunctionality.sendFile(getContext(), fileToPlay.getAbsolutePath());
 
                 AndroidNetworking.upload("https://hypatia.cs.ualberta.ca/depression/index.php?action=voice")
                         // to send the audio file
@@ -236,12 +240,14 @@ public class RecordingCustomFragment extends Fragment implements View.OnClickLis
                         .getAsString(new StringRequestListener() {
                             @Override
                             public void onResponse(String response) {
-                                Toast.makeText(getActivity(),"Succesful Upload", Toast.LENGTH_SHORT).show();
-                                Toast.makeText(getActivity(), response, Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getActivity(),"Succesful Upload", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getActivity(), response, Toast.LENGTH_SHORT).show();
+                                showSnackbar();
+                                sendBtn.setEnabled(false);
                             }
                             @Override
                             public void onError(ANError error) {
-                                Toast.makeText(getActivity(), error.getErrorDetail(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getActivity(), error.getErrorDetail(), Toast.LENGTH_SHORT).show();
                                 Toast.makeText(getActivity(), error.getErrorBody(), Toast.LENGTH_LONG).show();
                             }
                         });
@@ -381,7 +387,7 @@ public class RecordingCustomFragment extends Fragment implements View.OnClickLis
         timer.stop();
 
         //Change text on page to file saved
-        filenameText.setText("Grabación detenida archivo creado: " + recordFile);
+        filenameText.setText("File created: " + recordFile);
 
         //Stop media recorder and set it to null for further use to record new audio
         mediaRecorder.stop();
@@ -406,7 +412,7 @@ public class RecordingCustomFragment extends Fragment implements View.OnClickLis
         //initialize filename variable with date and time at the end to ensure the new file wont overwrite previous file
         recordFile = "Recording_question" + "_" + formatter.format(now) + ".3gp";
 
-        filenameText.setText("Recording, File Name : " + recordFile);
+        filenameText.setText("Recording...");
 
         //Setup Media Recorder for recording
         mediaRecorder = new MediaRecorder();
@@ -444,4 +450,10 @@ public class RecordingCustomFragment extends Fragment implements View.OnClickLis
             stopRecording();
         }
     }
+
+    public void showSnackbar(){
+        Snackbar snackbar = Snackbar.make(coordinatorLayout, "Successful Upload", Snackbar.LENGTH_LONG);
+        snackbar.show();
+    }
+
 }

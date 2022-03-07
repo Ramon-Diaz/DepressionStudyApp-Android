@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -109,10 +110,35 @@ public class Login extends AppCompatActivity {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                EditText resetAlias = new EditText(view.getContext());
+
                 AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext());
                 passwordResetDialog.setTitle(view.getContext().getString(R.string.reset_password));
                 passwordResetDialog.setMessage(view.getContext().getString(R.string.email_prompt_reset));
+                passwordResetDialog.setView(resetAlias);
 
+                passwordResetDialog.setPositiveButton(view.getContext().getString((R.string.send)), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String alias_ = resetAlias.getText().toString();
+                        if(TextUtils.isEmpty(alias_)){
+                            Toast.makeText(view.getContext(), view.getContext().getString(R.string.alias_error), Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        // send an email to diazramo@ualberta.ca to send the email
+                        Intent intent = new Intent(Intent.ACTION_SENDTO);
+
+                        intent.putExtra(Intent.EXTRA_SUBJECT, "Password Reset Depression Study App");
+                        intent.putExtra(Intent.EXTRA_TEXT, "Hi Ramon, can you reset my password, my alias is "+alias_);
+                        intent.setData(Uri.parse("mailto:"+"diazramo@ualberta.ca"));
+
+                        if (intent.resolveActivity(getPackageManager()) != null){
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(view.getContext(), "There is no application that supports this action", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
                 passwordResetDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

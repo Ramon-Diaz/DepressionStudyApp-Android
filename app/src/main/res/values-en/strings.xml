@@ -29,14 +29,14 @@
     <string name="user_terms">I agree to provide my data for the purposes of this study.</string>
     <string name="log_send">Send Log</string>
     <string name="advice_title">Our advice</string>
-    <string name="advice_1">Walk briskly for 15 to 30 minutes each day, or dance, run or ride a bike, if you prefer. Depressed people don\'t usually feel like being active, but make yourself do it anyway (ask a friend to join you to stay motivated). Once you make exercise a habit, it won\'t take long to notice a positive change in your mood. \\nAside from aerobic exercise, some yoga poses can help relieve depressed feelings.</string>
+    <string name="advice_1">Walk briskly for 15 to 30 minutes each day, or dance, run or ride a bike, if you prefer. Depressed people don\'t usually feel like being active, but make yourself do it anyway (ask a friend to join you to stay motivated). Once you make exercise a habit, it won\'t take long to notice a positive change in your mood. Aside from aerobic exercise, some yoga poses can help relieve depressed feelings.</string>
     <string name="advice_2">Depression can affect appetite. When depressed, some people don\'t feel like eating at all, but others may eat too much. If depression has affected your eating habits, you will need to be very aware of the need to eat well. Nutrition can influence a person\'s mood and energy level.</string>
     <string name="advice_3">Try to identify the circumstances that have contributed to your depression. Once you know what has made you feel sad and down and why, and have aired those thoughts and feelings, focus attention on something positive. Take action to solve your problems.</string>
     <string name="advice_4">When a person is depressed, they may have blocked creativity and the ability to enjoy things. Exercise your imagination (painting, drawing, doodling, sewing, writing, dancing, composing music, etc.) and you will not only get your creative juices flowing but you may also experience positive emotions. Spend time playing with a friend or your pet or do something fun alone.</string>
-    <string name="advice_5">Depression has an impact on people\'s thoughts, making everything seem black, disastrous, sad and negative. If depression is making you focus only on the negative, make an effort to focus on the good things in life.\\n As an exercise you can make a list of positive things that happened to you in your day; this will help you realize that you can find positive sides to even the smallest of things.</string>
+    <string name="advice_5">Depression has an impact on people\'s thoughts, making everything seem black, disastrous, sad and negative. If depression is making you focus only on the negative, make an effort to focus on the good things in life. As an exercise you can make a list of positive things that happened to you in your day; this will help you realize that you can find positive sides to even the smallest of things.</string>
     <string name="advice_6">Avoidance is a defense mechanism that, in the short term, \"protects\" you from experiencing difficult emotions but, in the long term, can generate a greater degree of depression.</string>
-    <string name="advice_7">A typical characteristic of depression is losing interest in achieving goals or objectives. \\n Setting goals, whether big or small, is an important means to overcome depression.</string>
-    <string name="advice_8">Have hobbies and practice them as much as you can. It will make you feel alive. Whatever happens, don’t forget to reserve moments for yourself and to do what you enjoy. Don\\\'t let your mood determine your activity level.</string>
+    <string name="advice_7">A typical characteristic of depression is losing interest in achieving goals or objectives. Setting goals, whether big or small, is an important means to overcome depression.</string>
+    <string name="advice_8">Have hobbies and practice them as much as you can. It will make you feel alive. Whatever happens, don’t forget to reserve moments for yourself and to do what you enjoy. Don\'t let your mood determine your activity level.</string>
     <string name="advice_9">Don\'t close in on yourself, it is important that you remove your armor and let someone know how you feel. Remember that life is too short to suffer longer than necessary.</string>
     <string name="advice_10">Start moving TODAY! Take the first step NOW and step by step you will overcome depression and regain your vitality.</string>
     <string name="notification">No notification</string>
@@ -85,7 +85,7 @@
     <string name="password_error">Password is necessary!</string>
     <string name="password_error_2">Password must be more than 6 characters</string>
     <string name="reset_password">Forgot Password?</string>
-    <string name="email_prompt_reset">Please send an email with your alias to diazramo@ualberta.ca</string>
+    <string name="email_prompt_reset">Please enter your alias to reset your password</string>
     <string name="yes">Yes</string>
     <string name="reset_link_prompt">Reset link sent to your email.</string>
     <string name="reset_link_prompt_error">"Reset link was NOT sent "</string>
@@ -94,6 +94,17 @@
     <string name="gender_error">Gender is necessary!</string>
     <string name="user_created">User Created!</string>
     <string name="title_wearables">Upload</string>
-    <string name="audioText_" translatable="true">"Please call Stella.  Ask her to bring these things with her from the store:  Six spoons of fresh snow peas, five thick slabs of blue cheese, and maybe a snack for her brother Bob.  We also need a small plastic snake and a big toy frog for the kids.  She can scoop these things into three red bags, and we will go meet her Wednesday at the train station. "</string>
+    <string name="recordingInstructions">Please go through both</string>
+    <string name="additional_resources_title">Additional Mental Wellness Supports</string>
+    <string name="additional_resources_1">Counseling and clinical services at the U of A</string>
+    <string name="additional_resources_2">Book an initial consultation by calling 780-492-5205 or visit the clinic in 2-600 SUB between the hours of 8:00am-4:00pm, Monday through Friday.</string>
+    <string name="additional_resources_3">U of A students who do not currently reside in Alberta can connect with doshelp@ualberta.ca for additional support.</string>
+    <string name="additional_resources_4">Please note that counseling services  through this program are not meant for urgent or crisis situations</string>
+    <string name="additional_resources_5">ACCESS 24/7</string>
+    <string name="additional_resources_6">Connect with a mental health therapist or psychiatrist</string>
+    <string name="additional_resources_7">Available for urgent and crisis situations</string>
+    <string name="additional_resources_8">Phone 780-424-2424 or drop-in through Anderson Hall (at the Royal Alexandra Hospital)  at 10959 102 St NW, Edmonton, AB T5H 2V1</string>
+    <string name="additional_resources_9">24 Hour Distress/Crisis Line 780-482-4357</string>
+    <string name="additional_resources_10">If you are experiencing suicidal thoughts with a specific plan and/or do not feel you can keep yourself safe call 9-1-1 or go to the Emergency Department.</string>
 
 </resources>

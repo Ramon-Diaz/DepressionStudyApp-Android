@@ -51,7 +51,7 @@
                         android:layout_marginBottom="8dp"
                         android:text="@string/advice_title"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="#FF0094C1"
                         android:textStyle="bold" />
 
                     <TextView
@@ -88,9 +88,9 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginBottom="8dp"
+                        android:textColor="#FF0094C1"
                         android:text="@string/home_title"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                        android:textSize="24sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -127,16 +127,16 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginBottom="8dp"
-                        android:text="Please know that additional Mental wellness supports are available to you if you ever need them"
+                        android:textColor="#FF0094C1"
+                        android:text="@string/additional_resources_title"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                        android:textSize="24sp"
                         android:textStyle="bold" />
                     <TextView
                         android:id="@+id/resources_body1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="Counseling and clinical services at the U of A"
+                        android:text="@string/additional_resources_1"
                         android:textSize="18sp"
                         android:layout_marginBottom="8dp"
                         android:textStyle="bold" />
@@ -145,7 +145,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="Book an initial consultation by calling 780-492-5205 or visit the clinic in 2-600 SUB between the hours of 8:00am-4:00pm, Monday through Friday."
+                        android:text="@string/additional_resources_2"
                         android:layout_marginBottom="8dp"
                         android:textSize="18sp" />
                     <TextView
@@ -154,7 +154,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:layout_marginBottom="8dp"
-                        android:text="U of A students who do not currently reside in Alberta can connect with doshelp@ualberta.ca for additional support."
+                        android:text="@string/additional_resources_3"
                         android:textSize="18sp"/>
 
                     <TextView
@@ -163,7 +163,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:layout_marginBottom="8dp"
-                        android:text="Please note that counseling services  through this program are not meant for urgent or crisis situations"
+                        android:text="@string/additional_resources_4"
                         android:textSize="18sp"/>
 
                     <TextView
@@ -171,7 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="ACCESS 24/7"
+                        android:text="@string/additional_resources_5"
                         android:layout_marginBottom="8dp"
                         android:textStyle="bold"
                         android:textSize="18sp"/>
@@ -181,7 +181,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="Connect with a mental health therapist or psychiatrist"
+                        android:text="@string/additional_resources_6"
                         android:textSize="18sp"/>
 
                     <TextView
@@ -189,7 +189,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="Available for urgent and crisis situations"
+                        android:text="@string/additional_resources_7"
                         android:layout_marginBottom="8dp"
                         android:textSize="18sp"/>
 
@@ -198,7 +198,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="Phone 780-424-2424 or drop-in through Anderson Hall (at the Royal Alexandra Hospital)  at 10959 102 St NW, Edmonton, AB T5H 2V1"
+                        android:text="@string/additional_resources_8"
                         android:layout_marginBottom="8dp"
                         android:textSize="18sp"/>
 
@@ -207,7 +207,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="24 Hour Distress/Crisis Line 780-482-4357"
+                        android:text="@string/additional_resources_9"
                         android:layout_marginBottom="8dp"
                         android:textStyle="bold"
                         android:textSize="18sp"/>
@@ -217,7 +217,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="If you are experiencing suicidal thoughts with a specific plan and/or do not feel you can keep yourself safe call 9-1-1 or go to the Emergency Department."
+                        android:text="@string/additional_resources_10"
                         android:textStyle="bold"
                         android:textSize="18sp"/>
 

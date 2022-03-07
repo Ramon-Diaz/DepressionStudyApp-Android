@@ -175,8 +175,6 @@ public class LogFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getActivity(),"Sending...", Toast.LENGTH_SHORT).show();
-
                 int firstText = FIRST.getSelectedItemPosition();
                 int secondText = SECOND.getSelectedItemPosition();
                 int thirdText = THIRD.getSelectedItemPosition();
@@ -247,6 +245,7 @@ public class LogFragment extends Fragment {
                                 @Override
                                 public void onResponse(String response) {
                                     showSnackbar();
+                                    SEND_LOG.setEnabled(false);
                                 }
                                 @Override
                                 public void onError(ANError error) {

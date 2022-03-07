@@ -37,14 +37,14 @@
 
 
     <string name="advice_title">Nuestro consejo</string>
-    <string name="advice_1">"Anda a paso ligero de 15 a 30 minutos cada día, o baila, corre o monta en bicicleta, si lo prefieres. A las personas deprimidas no les suele apetecer estar activas. Pero, de todos modos, oblígate a hacerlo (pídele a un amigo que te acompañe si lo necesitas para estar motivado). En cuanto hagas del ejercicio un hábito, no tardarás mucho en percibir un cambio positivo en tu estado de ánimo.\nAparte del ejercicio aeróbico, algunas posturas de yoga te pueden ayudar a aliviar los sentimientos depresivos."</string>
+    <string name="advice_1">Anda a paso ligero de 15 a 30 minutos cada día, o baila, corre o monta en bicicleta, si lo prefieres. A las personas deprimidas no les suele apetecer estar activas. Pero, de todos modos, oblígate a hacerlo (pídele a un amigo que te acompañe si lo necesitas para estar motivado). En cuanto hagas del ejercicio un hábito, no tardarás mucho en percibir un cambio positivo en tu estado de ánimo. Aparte del ejercicio aeróbico, algunas posturas de yoga te pueden ayudar a aliviar los sentimientos depresivos.</string>
     <string name="advice_2">La depresión puede afectar al apetito. Cuando están deprimidas, a algunas personas no les apetece nada comer, pero hay otras pueden comer demasiado. Si la depresión ha afectado a tus hábitos alimentarios, tendrás que tener muy presente la necesidad de alimentarte bien. La nutrición puede influir en el estado de ánimo y el nivel de energía de una persona.</string>
-    <string name="advice_3">"Intenta identificar las circunstancias que han contribuido a tu depresión. Cuando sepas qué es lo que te ha hecho sentirte triste y decaído y por qué.\n Una vez hayas aireado esos pensamientos y sentimientos, centra la atención en algo positivo. Actúa para solucionar tus problemas."</string>
+    <string name="advice_3">Intenta identificar las circunstancias que han contribuido a tu depresión. Cuando sepas qué es lo que te ha hecho sentirte triste y decaído y por qué. Una vez hayas aireado esos pensamientos y sentimientos, centra la atención en algo positivo. Actúa para solucionar tus problemas.</string>
     <string name="advice_4">Cuando una persona está deprimida, puede tener bloqueadas la creatividad y la capacidad para disfrutar de las cosas. Ejercita tu imaginación (pintando, dibujando, haciendo garabatos, cosiendo, escribiendo, bailando, componiendo música, etc.) y no sólo conseguirás que fluyan tus jugos creativos sino que es posible que también experimentes emociones positivas. Dedica tiempo a jugar con un amigo o con tu mascota o haz algo divertido a solas.</string>
     <string name="advice_5">"La depresión repercute sobre los pensamientos de las personas, haciendo que todo parezca negro, desastroso, triste y negativo. Si la depresión te está haciendo fijarte solo en lo negativo, haz un esfuerzo para fijarte en las cosas buenas de la vida.\nComo ejercicio puedes hacer una lista de cosas positivas que te pasaron en tu día, te ayudará a darte cuenta que por muy mínimo puedes encontrar lados positivos."</string>
-    <string name="advice_6">OK</string>
-    <string name="advice_7">"Una característica típica de la depresión es perder el interés por alcanzar metas u objetivos.\n Establece objetivos mayores o menores con el fin de dar ilusión es un importante estímulo para superar la depresión."</string>
-    <string name="advice_8">Ten hobbies y practicarlos todo lo que puedas.Te hará sentir vivo.Pase lo que pase o te olvides de reservar momentos para ti mismo y para hacer aquello que disfrutes.No dejes que tu estado de ánimo determine tu nivel de actividad.</string>
+    <string name="advice_6">La evitación es un mecanismo de defensa que, a corto plazo, te \"protege\" de experimentar emociones difíciles pero, a largo plazo, puede generar un mayor grado de depresión.</string>
+    <string name="advice_7">Una característica típica de la depresión es perder el interés por alcanzar metas u objetivos.  Establece objetivos mayores o menores con el fin de dar ilusión es un importante estímulo para superar la depresión.</string>
+    <string name="advice_8">Ten hobbies y practicarlos todo lo que puedas. Te hará sentir vivo. Pase lo que pase o te olvides de reservar momentos para ti mismo y para hacer aquello que disfrutes.No dejes que tu estado de ánimo determine tu nivel de actividad.</string>
     <string name="advice_9">No te encierres en ti mismo, es importante que quites corazas y permitas que alguien conozca cómo te sientes, recuerda que la vida es muy corta para sufrir más tiempo del necesario.</string>
     <string name="advice_10">¡Comienza HOY a moverte! Da AHORA el primer paso y pasito a pasito lograrás superar la depresión y volver a recuperar tu vitalidad.</string>
 
@@ -96,8 +96,8 @@
     <string name="password_error">La contraseña es necesaria!</string>
     <string name="password_error_2">La contraseña debe ser de mas de 6 caracteres</string>
     <string name="reset_password">Reestablecer contraseña?</string>
-    <string name="email_prompt_reset">Por favor envia un correo con tu alias a diazramo@ualberta.ca</string>
-    <string name="home_description">The project aims to detect changes in mood and stress levels, by analyzing data obtained from the smartwatch sensors and the spoken diary recordings.</string>
+    <string name="email_prompt_reset">Please enter your alias to reset your password</string>
+    <string name="home_description">El proyecto pretende detectar cambios en el estado de ánimo y en los niveles de estrés, analizando los datos obtenidos de los sensores del smartwatch y de las grabaciones del diario hablado.</string>
     <string name="yes">Yes</string>
     <string name="reset_link_prompt">Se ha enviado la liga a su correo.</string>
     <string name="reset_link_prompt_error">"NO se pudo enviar la liga "</string>
@@ -106,6 +106,17 @@
     <string name="gender_error">Género es necesario!</string>
     <string name="user_created">Usuario generado!</string>
     <string name="title_wearables">Upload</string>
-    <string name="audioText_">Please call Stella.  Ask her to bring these things with her from the store:  Six spoons of fresh snow peas, five thick slabs of blue cheese, and maybe a snack for her brother Bob.  We also need a small plastic snake and a big toy frog for the kids.  She can scoop these things into three red bags, and we will go meet her Wednesday at the train station. </string>
+    <string name="recordingInstructions">Favor de hacer los dos</string>
+    <string name="additional_resources_title">Recursos Adicionales de Salud Mental</string>
+    <string name="additional_resources_1">Recuerda que puedes llamar a la línea TQueremos 800 813 9500 que atiende las 24 horas, los 365 días del año.</string>
+    <string name="additional_resources_2">https://tec.mx/es/noticias/nacional/salud/que-pasa-cuando-llamas-la-linea-de-apoyo-emocional-del-tec</string>
+    <string name="additional_resources_3">" "</string>
+    <string name="additional_resources_4">" "</string>
+    <string name="additional_resources_5">" "</string>
+    <string name="additional_resources_6">" "</string>
+    <string name="additional_resources_7">" "</string>
+    <string name="additional_resources_8">" "</string>
+    <string name="additional_resources_9">" "</string>
+    <string name="additional_resources_10">" "</string>
 
 </resources>
