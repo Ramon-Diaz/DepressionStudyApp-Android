@@ -331,16 +331,22 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
         Date now = new Date();
 
         //initialize filename variable with date and time at the end to ensure the new file wont overwrite previous file
-        recordFile = "Recording_text" + "_" + formatter.format(now) + ".3gp";
+        recordFile = "Recording_text" + "_" + formatter.format(now) + ".m4a";
 
         filenameText.setText("Recording...");
 
         //Setup Media Recorder for recording
         mediaRecorder = new MediaRecorder();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        //mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        //mediaRecorder.setOutputFile(recordPath + "/" + recordFile);
+        //mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+
+        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+        mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         mediaRecorder.setOutputFile(recordPath + "/" + recordFile);
-        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+        mediaRecorder.setAudioEncodingBitRate(16*44100);
+        mediaRecorder.setAudioSamplingRate(44100);
 
         try {
             mediaRecorder.prepare();
