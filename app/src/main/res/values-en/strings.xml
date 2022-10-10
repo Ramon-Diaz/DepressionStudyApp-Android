@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Depression Study in Students</string>
     <string name="title_home">Home</string>
     <string name="title_voice">Voice</string>
     <string name="title_dashboard">Profile</string>
@@ -49,8 +48,8 @@
     <string name="sendAudio">Send audio</string>
     <string name="removeAudio">Remove audio</string>
     <string name="audioFreeText">In this section, tell us about your day</string>
-    <string name="customBtnText">Free Speech</string>
-    <string name="textBtnText">Text Recording</string>
+    <string name="customBtnText">1. Open Question</string>
+    <string name="textBtnText">2. Text Recording</string>
     <string name="log_first">I found it hard to wind down.</string>
     <string name="log_second">I was aware of dryness of my mouth.</string>
     <string name="log_third">I couldn’t seem to experience any positive feeling at all.</string>
@@ -106,5 +105,26 @@
     <string name="additional_resources_8">Phone 780-424-2424 or drop-in through Anderson Hall (at the Royal Alexandra Hospital)  at 10959 102 St NW, Edmonton, AB T5H 2V1</string>
     <string name="additional_resources_9">24 Hour Distress/Crisis Line 780-482-4357</string>
     <string name="additional_resources_10">If you are experiencing suicidal thoughts with a specific plan and/or do not feel you can keep yourself safe call 9-1-1 or go to the Emergency Department.</string>
+    <string name="question_1">What kind of things do you enjoy?</string>
+    <string name="question_2">Some people prefer to spend time with other people, while others prefer to work and do things alone. How would you describe yourself?</string>
+    <string name="question_3">Do you usually avoid taking chances or trying new activities because you’re worried about embarrassing yourself? Why?</string>
+    <string name="question_4">Do you often turn to others for advice about everyday decisions like what to have for lunch or what clothes to buy?</string>
+    <string name="question_5">Some people turn to others to make decisions about important areas of their life. For example, they let someone else decide whether they should take a job, who their friends should be, etc. Does this sound like your life?</string>
+    <string name="question_6">Do you usually need help from somebody else to get started on a project or do things on your own? Why is that?</string>
+    <string name="question_7">After you pay your bills, what kinds of things do you like to spend money on? Are you slow to spend money on yourself?</string>
+    <string name="question_8">Some people worry so much about something terrible happening in the future, that they hold on to all their money. Does this sound like you? Tell me about that.</string>
+    <string name="question_9">When you have a chance to do something that’s fun, is it hard to enjoy it? Have you always been this way?</string>
+    <string name="question_10">Is it hard for you to admit that you’ve had a good time? Have you always been this way?</string>
+    <string name="question_11">Do you usually turn down opportunities to have a good time? Why is this?</string>
+    <string name="question_12">Would you call yourself a workaholic? Why or why not?</string>
+    <string name="question_13">Have others complained about how much time you spend working? Why do you think is that?</string>
+    <string name="question_14">Do you enjoy a job that requires a lot of interaction with other people, or do you try to avoid that kind of work? Why is that?</string>
+    <string name="question_15">Have you ever turned down a job or promotion because it involved more contact with people? Why is that?</string>
+    <string name="question_16">What motivates you? What are you passionate about?</string>
+    <string name="question_17">Not everyone agrees all the time. Have you had a peer, teammate or friend disagree with you? What did you do?</string>
+    <string name="question_18">Give an example of a time you have gone over and above to achieve something. Why was it important for you to achieve this?</string>
+    <string name="question_19">Sometimes things don’t always go to plan. Describe a time when you failed in something? What did you do? How did that make you feel?</string>
+    <string name="question_20">Tell me about your social life. What have you been doing together with other people?</string>
+    <string name="question_21">How do you feel about the way things are going for you?</string>
 
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Étude sur la dépression chez les étudiants</string>
     <string name="title_home">Home</string>
     <string name="title_voice">Voixe</string>
     <string name="title_dashboard">Profil</string>
@@ -49,8 +48,8 @@
     <string name="sendAudio">Envoyer l\'audio</string>
     <string name="removeAudio">Supprimer l\\\'audio</string>
     <string name="audioFreeText">Dans cette section, racontez-nous votre journée.</string>
-    <string name="customBtnText">Liberté d\\\'expression</string>
-    <string name="textBtnText">Du texte</string>
+    <string name="customBtnText">1. Question ouverte</string>
+    <string name="textBtnText">2. Du texte</string>
     <string name="log_first">J’ai trouvé difficile de décompresser.</string>
     <string name="log_second">J’ai été conscient(e) d’avoir la bouche sèche.</string>
     <string name="log_third">J’ai eu l’impression de ne pas pouvoir ressentir d’émotion positive.</string>
@@ -106,4 +105,25 @@
     <string name="additional_resources_8">Téléphonez au 780-424-2424 ou rendez-vous au Anderson Hall (à l\'hôpital Royal Alexandra) au 10959 102 St NW, Edmonton, AB T5H 2V1.</string>
     <string name="additional_resources_9">Ligne de détresse/de crise 24 heures sur 24 780-482-4357</string>
     <string name="additional_resources_10">Si vous avez des pensées suicidaires avec un plan précis et/ou si vous ne vous sentez pas capable d\'assurer votre sécurité, appelez le 9-1-1 ou rendez-vous au service des urgences.</string>
+    <string name="question_21">Que pensez-vous de la façon dont les choses se passent pour vous ?</string>
+    <string name="question_20">Parlez-moi de votre vie sociale. Que faites-vous avec d\'autres personnes ?</string>
+    <string name="question_19">Parfois, les choses ne se passent pas toujours comme prévu. Décrivez une fois où vous avez échoué dans quelque chose ? Qu\'avez-vous fait ? Comment vous êtes-vous senti ?</string>
+    <string name="question_18">Donnez un exemple d\'une occasion où vous vous êtes surpassé pour réaliser quelque chose. Pourquoi était-ce important pour vous de le faire ?</string>
+    <string name="question_17">Tout le monde n\'est pas toujours d\'accord. Avez-vous déjà eu un pair, un coéquipier ou un ami en désaccord avec vous ? Qu\'avez-vous fait ?</string>
+    <string name="question_16">Qu\'est-ce qui vous motive ? Qu\'est-ce qui vous passionne ?</string>
+    <string name="question_15">Avez-vous déjà refusé un emploi ou une promotion parce qu\'il impliquait davantage de contacts avec les gens ? Pourquoi cela ?</string>
+    <string name="question_14">Aimez-vous un travail qui exige beaucoup d\'interaction avec d\'autres personnes, ou essayez-vous d\'éviter ce genre de travail ? Pourquoi cela ?</string>
+    <string name="question_13">Les autres se sont-ils plaints du temps que vous passez à travailler ? Pourquoi, à votre avis ?</string>
+    <string name="question_12">Vous qualifieriez-vous de bourreau de travail ? Pourquoi ou pourquoi pas ?</string>
+    <string name="question_11">Avez-vous l\'habitude de refuser les occasions de vous amuser ? Pourquoi ?</string>
+    <string name="question_10">Avez-vous du mal à admettre que vous avez passé un bon moment ? Avez-vous toujours été comme ça ?</string>
+    <string name="question_9">Lorsque vous avez l\'occasion de faire quelque chose d\'amusant, est-il difficile d\'en profiter ? Avez-vous toujours été comme ça ?</string>
+    <string name="question_8">Certaines personnes ont tellement peur que quelque chose de terrible se produise dans le futur qu\'elles gardent tout leur argent. Est-ce que cela vous ressemble ? Parlez-moi de ça.</string>
+    <string name="question_7">Après avoir payé vos factures, à quoi aimez-vous consacrer de l\'argent ? Êtes-vous lent à dépenser de l\'argent pour vous-même ?</string>
+    <string name="question_6">Avez-vous généralement besoin de l\'aide de quelqu\'un d\'autre pour vous lancer dans un projet ou faire des choses par vous-même ? Comment cela se fait-il ?</string>
+    <string name="question_5">Certaines personnes se tournent vers les autres pour prendre des décisions concernant des domaines importants de leur vie. Par exemple, elles laissent quelqu\'un d\'autre décider si elles doivent accepter un emploi, qui doivent être leurs amis, etc. Cela ressemble-t-il à votre vie ?</string>
+    <string name="question_4">Vous adressez-vous souvent à d\'autres personnes pour obtenir des conseils sur des décisions de tous les jours, comme ce que vous allez manger à midi ou les vêtements que vous allez acheter ?</string>
+    <string name="question_3">Avez-vous l\'habitude d\'éviter de prendre des risques ou d\'essayer de nouvelles activités parce que vous avez peur de vous ridiculiser ? Pourquoi ?</string>
+    <string name="question_2">Certaines personnes préfèrent passer du temps avec d\'autres personnes, tandis que d\'autres préfèrent travailler et faire des choses seules. Comment vous décririez-vous ?</string>
+    <string name="question_1">Quel genre de choses aimez-vous ?</string>
 </resources>

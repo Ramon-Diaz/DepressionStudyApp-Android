@@ -93,8 +93,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@drawable/custom_button"
                         android:text="@string/update"
+                        android:enabled="true"
                         android:textColor="#FFFFFF" />
 
                 </LinearLayout>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Estudio de depresión en alumnos</string>
     <string name="title_home">Inicio</string>
     <string name="title_voice">Voz</string>
 
@@ -59,8 +58,8 @@
     <string name="sendAudio">Enviar archivo</string>
     <string name="removeAudio">Eliminar</string>
     <string name="audioFreeText">En esta sección, cuéntanos algo de tu día</string>
-    <string name="customBtnText">Grabación libre.</string>
-    <string name="textBtnText">Grabación texto.</string>
+    <string name="customBtnText">1. Pregunta Abierta</string>
+    <string name="textBtnText">2. Grabación texto</string>
     <string name="log_send">Enviar bitácora</string>
     <string name="log_first">Me costó mucho relajarme.</string>
     <string name="log_second">Me di cuenta que tenia la boca seca.</string>
@@ -118,5 +117,26 @@
     <string name="additional_resources_8">" "</string>
     <string name="additional_resources_9">" "</string>
     <string name="additional_resources_10">" "</string>
+    <string name="question_1" translatable="false">¿Qué tipo de cosas le gustan?</string>
+    <string name="question_2">Algunas personas prefieren pasar el tiempo con otras personas, mientras que otras prefieren trabajar y hacer cosas solas. ¿Cómo se describiría usted mismo?</string>
+    <string name="question_3">¿Suele evitar arriesgarse o probar nuevas actividades porque le preocupa pasar vergüenza? ¿Por qué?</string>
+    <string name="question_4">¿Sueles pedir consejo a otras personas sobre decisiones cotidianas como qué comer o qué ropa comprar?</string>
+    <string name="question_5">Algunas personas recurren a otros para tomar decisiones sobre aspectos importantes de su vida. Por ejemplo, dejan que otra persona decida si deben aceptar un trabajo, quiénes deben ser sus amigos, etc. ¿Se parece esto a tu vida?</string>
+    <string name="question_6">¿Suele necesitar la ayuda de otra persona para empezar un proyecto o hacer las cosas por su cuenta? ¿Por qué?</string>
+    <string name="question_7">Después de pagar las facturas, ¿en qué cosas te gusta gastar el dinero? ¿Eres lento para gastar dinero en ti mismo?</string>
+    <string name="question_8">Algunas personas se preocupan tanto de que ocurra algo terrible en el futuro, que se aferran a todo su dinero. ¿Suena esto a ti? Háblame de ello.</string>
+    <string name="question_9">Cuando tienes la oportunidad de hacer algo divertido, ¿te cuesta disfrutarlo? ¿Siempre has sido así?</string>
+    <string name="question_10">¿Te cuesta admitir que te lo has pasado bien? ¿Siempre has sido así?</string>
+    <string name="question_11">¿Suele rechazar las oportunidades de pasarlo bien? ¿Por qué?</string>
+    <string name="question_12">¿Se consideraría un adicto al trabajo? ¿Por qué o por qué no?</string>
+    <string name="question_13">¿Se han quejado los demás del tiempo que dedicas al trabajo? ¿A qué cree que se debe?</string>
+    <string name="question_14">¿Disfrutas de un trabajo que requiere mucha interacción con otras personas o intentas evitar ese tipo de trabajo? ¿Por qué?</string>
+    <string name="question_15">¿Ha rechazado alguna vez un trabajo o un ascenso porque implicaba más contacto con la gente? ¿Por qué?</string>
+    <string name="question_16">¿Qué le motiva? ¿Qué le apasiona?</string>
+    <string name="question_17">No todo el mundo está de acuerdo siempre. ¿Has tenido algún compañero, colega o amigo que no esté de acuerdo contigo? ¿Qué has hecho?</string>
+    <string name="question_18">Pon un ejemplo de una ocasión en la que hayas ido más allá para conseguir algo. ¿Por qué era importante para ti conseguirlo?</string>
+    <string name="question_19">A veces, las cosas no siempre salen según lo previsto. Describe una ocasión en la que hayas fracasado en algo. ¿Qué hiciste? ¿Cómo te hizo sentir eso?</string>
+    <string name="question_20">Háblame de tu vida social. ¿Qué has hecho con otras personas?</string>
+    <string name="question_21">¿Qué opinas de cómo te van las cosas?</string>
 
 </resources>

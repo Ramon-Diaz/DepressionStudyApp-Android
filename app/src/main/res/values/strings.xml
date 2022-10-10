@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <string name="app_name">Depression Study in Students</string>
+    <string name="app_name" translatable="false">My Mood Diary</string>
     <string name="title_home">Home</string>
     <string name="title_log" translatable="false">DASS</string>
     <string name="title_voice">Voice</string>
@@ -52,8 +52,8 @@
     <string name="removeAudio">Remove audio</string>
     <string name="audioFreeText">In this section, tell us about your day</string>
     <string name="recordingInstructions">Please go through both</string>
-    <string name="customBtnText">Free Speech</string>
-    <string name="textBtnText">Text Recording</string>
+    <string name="customBtnText">1. Open Question</string>
+    <string name="textBtnText">2. Text Recording</string>
     <string name="user_name" translatable="false">Alias</string>
 
     <string name="log_first">I found it hard to wind down.</string>
@@ -67,10 +67,10 @@
 
     <string-array name="dropdown_array">
         <item>- </item>
-        <item>0 Did not apply to me at all</item>
-        <item>1 Applied to me to some degree, or some of the time</item>
-        <item>2 Applied to me to a considerable degree or a good part of time</item>
-        <item>3 Applied to me very much or most of the time</item>
+        <item>0 No me ha ocurrido</item>
+        <item>1 Me ha ocurrido un poco, o durante parte del tiempo</item>
+        <item>2 Me ha ocurrido bastante, o durante una buena parte del tiempo</item>
+        <item>3 Me ha ocurrido mucho, o la mayor parte del tiempo</item>
     </string-array>
     <string-array name="dropdown_gender">
         <item>- </item>
@@ -128,29 +128,29 @@
     <string name="user_created">User Created!</string>
     <string name="language_prof" translatable="false">English Language Proficiency</string>
     <string name="title_wearables">Upload</string>
-    <string name="question_1" translatable="false">What kind of things do you enjoy?</string>
-    <string name="question_2" translatable="false">Some people prefer to spend time with other people, while others prefer to work and do things alone. How would you describe yourself?</string>
-    <string name="question_3" translatable="false">Do you usually avoid taking chances or trying new activities because you’re worried about embarrassing yourself? Why?</string>
-    <string name="question_4" translatable="false">Do you often turn to others for advice about everyday decisions like what to have for lunch or what clothes to buy?</string>
-    <string name="question_5" translatable="false">Some people turn to others to make decisions about important areas of their life. For example, they let someone else decide whether they should take a job, who their friends should be, etc. Does this sound like your life?</string>
-    <string name="question_6" translatable="false">Do you usually need help from somebody else to get started on a project or do things on your own? Why is that?</string>
-    <string name="question_7" translatable="false">After you pay your bills, what kinds of things do you like to spend money on? Are you slow to spend money on yourself?</string>
-    <string name="question_8" translatable="false">Some people worry so much about something terrible happening in the future, that they hold on to all their money. Does this sound like you? Tell me about that.</string>
-    <string name="question_9" translatable="false">When you have a chance to do something that’s fun, is it hard to enjoy it? Have you always been this way?</string>
-    <string name="question_10" translatable="false">Is it hard for you to admit that you’ve had a good time? Have you always been this way?</string>
-    <string name="question_11" translatable="false">Do you usually turn down opportunities to have a good time? Why is this?</string>
-    <string name="question_12" translatable="false">Would you call yourself a workaholic? Why or why not?</string>
-    <string name="question_13" translatable="false">Have others complained about how much time you spend working? Why do you think is that?</string>
-    <string name="question_14" translatable="false">Do you enjoy a job that requires a lot of interaction with other people, or do you try to avoid that kind of work? Why is that?</string>
-    <string name="question_15" translatable="false">Have you ever turned down a job or promotion because it involved more contact with people? Why is that?</string>
-    <string name="question_16" translatable="false">What motivates you? What are you passionate about?</string>
-    <string name="question_17" translatable="false">Not everyone agrees all the time. Have you had a peer, teammate or friend disagree with you? What did you do?</string>
-    <string name="question_18" translatable="false">Give an example of a time you have gone over and above to achieve something. Why was it important for you to achieve this?</string>
-    <string name="question_19" translatable="false">Sometimes things don’t always go to plan. Describe a time when you failed in something? What did you do? How did that make you feel?</string>
-    <string name="question_20" translatable="false">Tell me about your social life. What have you been doing together with other people?</string>
-    <string name="question_21" translatable="false">How do you feel about the way things are going for you?</string>
+    <string name="question_1">What kind of things do you enjoy?</string>
+    <string name="question_2">Some people prefer to spend time with other people, while others prefer to work and do things alone. How would you describe yourself?</string>
+    <string name="question_3">Do you usually avoid taking chances or trying new activities because you’re worried about embarrassing yourself? Why?</string>
+    <string name="question_4">Do you often turn to others for advice about everyday decisions like what to have for lunch or what clothes to buy?</string>
+    <string name="question_5">Some people turn to others to make decisions about important areas of their life. For example, they let someone else decide whether they should take a job, who their friends should be, etc. Does this sound like your life?</string>
+    <string name="question_6">Do you usually need help from somebody else to get started on a project or do things on your own? Why is that?</string>
+    <string name="question_7">After you pay your bills, what kinds of things do you like to spend money on? Are you slow to spend money on yourself?</string>
+    <string name="question_8">Some people worry so much about something terrible happening in the future, that they hold on to all their money. Does this sound like you? Tell me about that.</string>
+    <string name="question_9">When you have a chance to do something that’s fun, is it hard to enjoy it? Have you always been this way?</string>
+    <string name="question_10">Is it hard for you to admit that you’ve had a good time? Have you always been this way?</string>
+    <string name="question_11">Do you usually turn down opportunities to have a good time? Why is this?</string>
+    <string name="question_12">Would you call yourself a workaholic? Why or why not?</string>
+    <string name="question_13">Have others complained about how much time you spend working? Why do you think is that?</string>
+    <string name="question_14">Do you enjoy a job that requires a lot of interaction with other people, or do you try to avoid that kind of work? Why is that?</string>
+    <string name="question_15">Have you ever turned down a job or promotion because it involved more contact with people? Why is that?</string>
+    <string name="question_16">What motivates you? What are you passionate about?</string>
+    <string name="question_17">Not everyone agrees all the time. Have you had a peer, teammate or friend disagree with you? What did you do?</string>
+    <string name="question_18">Give an example of a time you have gone over and above to achieve something. Why was it important for you to achieve this?</string>
+    <string name="question_19">Sometimes things don’t always go to plan. Describe a time when you failed in something? What did you do? How did that make you feel?</string>
+    <string name="question_20">Tell me about your social life. What have you been doing together with other people?</string>
+    <string name="question_21">How do you feel about the way things are going for you?</string>
     <string name="audioText_" translatable="false">"Please call Stella.  Ask her to bring these things with her from the store:  Six spoons of fresh snow peas, five thick slabs of blue cheese, and maybe a snack for her brother Bob.  We also need a small plastic snake and a big toy frog for the kids.  She can scoop these things into three red bags, and we will go meet her Wednesday at the train station. "</string>
-    <string name="additional_resources_title">Additional Mental Wellness Supports</string>
+    <string name="additional_resources_title">Mental Wellness Supports</string>
     <string name="additional_resources_1">Counseling and clinical services at the U of A</string>
     <string name="additional_resources_2">Book an initial consultation by calling 780-492-5205 or visit the clinic in 2-600 SUB between the hours of 8:00am-4:00pm, Monday through Friday.</string>
     <string name="additional_resources_3">U of A students who do not currently reside in Alberta can connect with doshelp@ualberta.ca for additional support.</string>
@@ -161,4 +161,15 @@
     <string name="additional_resources_8">Phone 780-424-2424 or drop-in through Anderson Hall (at the Royal Alexandra Hospital)  at 10959 102 St NW, Edmonton, AB T5H 2V1</string>
     <string name="additional_resources_9">24 Hour Distress/Crisis Line 780-482-4357</string>
     <string name="additional_resources_10">If you are experiencing suicidal thoughts with a specific plan and/or do not feel you can keep yourself safe call 9-1-1 or go to the Emergency Department.</string>
+
+    <string name="garmin_text_title" translatable="false"><b>Garmin</b></string>
+    <string name="garmin_text" translatable="false">Please Export All Uploaded Activities as a CSV File and Export Reports in Garmin Connect\n\n<a href="https://support.garmin.com/en-CA/?faq=W1TvTPW8JZ6LfJSfK512Q8">Garmin Link to Download Data</a></string>
+
+    <string name="fitbit_text_title" translatable="false"><b>Fitbit</b></string>
+    <string name="fitbit_text" translatable="false">Please export one week of data as a CSV file in your Fitbit Dashboard Web\n\n<a href="https://help.fitbit.com/articles/en_US/Help_article/1133.htm">Fitbit Link to Download Data</a></string>
+
+    <string name="samsung_text_title" translatable="false"><b>Samsung</b></string>
+    <string name="samsung_text" translatable="false">Please download your data from the Samsung Heath App, compress the complete folder and upload it\n\n<a href="https://www.samsung.com/us/support/answer/ANS00085104/">Samsung Link to Download Data</a></string>
+
+    <string name="instructions_app" translatable="false">Every third day fill up:\n\t1. Log: DASS21 questionnaire<br/>\n\t2. Voice: Open Question<br/>\n\t3. Voice: Text Recording<br/>\n Once a week, Upload your smartwatch data</string>
 </resources>
