@@ -40,6 +40,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import android.media.AudioFormat;
+import android.media.AudioRecord;
+
 public class RecordFragment extends Fragment implements View.OnClickListener {
 
     private ImageButton recordBtn;
@@ -338,12 +341,9 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
         //Setup Media Recorder for recording
         mediaRecorder = new MediaRecorder();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        //mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        //mediaRecorder.setOutputFile(recordPath + "/" + recordFile);
-        //mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-        mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+        mediaRecorder.setAudioChannels(1);
         mediaRecorder.setOutputFile(recordPath + "/" + recordFile);
         mediaRecorder.setAudioEncodingBitRate(16*44100);
         mediaRecorder.setAudioSamplingRate(44100);

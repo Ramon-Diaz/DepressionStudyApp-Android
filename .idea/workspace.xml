@@ -16,10 +16,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61395a5b-e58d-41dc-a697-78c0ca91f038" name="Default Changelist" comment="Release Version 1.0">
+    <list default="true" id="61395a5b-e58d-41dc-a697-78c0ca91f038" name="Default Changelist" comment="Audio Format m4a">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_databinding_viewbinding_7_3_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/DepressionStudyApp-Android.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/app/DepressionStudyApp-Android.app.androidTest.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/app/DepressionStudyApp-Android.app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/app/DepressionStudyApp-Android.app.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/app/DepressionStudyApp-Android.app.unitTest.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/technology/mota/mymooddiarymexico/RecordFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/technology/mota/mymooddiarymexico/RecordFragment.java" afterDir="false" />
     </list>
@@ -63,12 +67,14 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ApkExportedModule" value="MyMoodDiary.app" />
     <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/../.." />
     <property name="ExportApk.BuildVariants" value="release" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -209,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665427605901</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Audio Format m4a">
+      <created>1665439440842</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665439440842</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,6 +245,7 @@
     <MESSAGE value="Messages v1" />
     <MESSAGE value="Alert dialog for email message" />
     <MESSAGE value="Release Version 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Release Version 1.0" />
+    <MESSAGE value="Audio Format m4a" />
+    <option name="LAST_COMMIT_MESSAGE" value="Audio Format m4a" />
   </component>
 </project>
