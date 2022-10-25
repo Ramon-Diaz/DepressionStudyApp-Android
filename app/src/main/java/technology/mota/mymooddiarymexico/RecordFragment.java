@@ -42,6 +42,10 @@ import java.util.Locale;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;
+import android.os.Environment;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 public class RecordFragment extends Fragment implements View.OnClickListener {
 
@@ -83,6 +87,22 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
     public static final String KEY_ALIAS = "alias";
     public static final String KEY_PASSWORD = "password";
 
+
+    private static final int RECORDER_BPP = 16;
+    private static final String AUDIO_RECORDER_FILE_EXT_WAV = ".wav";
+    private static final String AUDIO_RECORDER_FOLDER = "MyMoodDiaryRecordings";
+    private static final String AUDIO_RECORDER_TEMP_FILE = "record_temp.raw";
+    private static final int RECORDER_SAMPLERATE = 44100;
+    private static final int RECORDER_CHANNELS = AudioFormat.CHANNEL_IN_MONO;
+    private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
+    short[] audioData;
+
+    private AudioRecord recorder = null;
+    private int bufferSize = 0;
+    private Thread recordingThread = null;
+    // private boolean isRecording = false;
+
+
     private CoordinatorLayout coordinatorLayout;
 
     public RecordFragment() {
@@ -113,6 +133,10 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
 
         String alias = sharedPreferences.getString(KEY_ALIAS, null);
         String password = sharedPreferences.getString(KEY_PASSWORD, null);
+
+
+        bufferSize = AudioRecord.getMinBufferSize(8000,AudioFormat.CHANNEL_IN_MONO,AudioFormat.ENCODING_PCM_16BIT);
+        audioData = new short [bufferSize]; //short array that pcm data is put into.
 
         playerSeekbar = v.findViewById(R.id.player_seekbar);
         /* Setting up on click listener
@@ -151,12 +175,12 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
             public void onClick(View v) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                 // SendFunctionality.sendFile(getContext(), fileToPlay.getAbsolutePath());
-
+                File fileToUpload = new File(getFilename(recordFile));
                 AndroidNetworking.upload("https://hypatia.cs.ualberta.ca/depression/index.php?action=voice")
                         // to send the audio file
                         .addMultipartParameter("email", alias)
                         .addMultipartParameter("password", password)
-                        .addMultipartFile("data", fileToPlay)
+                        .addMultipartFile("data", fileToUpload)
                         .setPriority(Priority.HIGH)
                         .build()
                         .setUploadProgressListener(new UploadProgressListener() {
@@ -184,7 +208,9 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View v) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                fileToPlay.delete();
+                File fileToRemove = new File(getFilename(recordFile));
+                fileToRemove.delete();
+
                 stopAudio();
             }
         });
@@ -225,7 +251,7 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
             isRecording = false;
         } else {
             //Check permission to record audio
-            if(checkPermissions()) {
+            if(checkPermissions() && checkStoragePermission()) {
                 //Start Recording
                 startRecording();
 
@@ -305,58 +331,252 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
         };
     }
 
-
-    private void stopRecording() {
-        //Stop Timer, very obvious
-        timer.stop();
-
-        //Change text on page to file saved
-        filenameText.setText("File Created: " + recordFile);
-
-        //Stop media recorder and set it to null for further use to record new audio
-        mediaRecorder.stop();
-        mediaRecorder.release();
-        mediaRecorder = null;
-        fileToPlay = new File(recordPath+"/" + recordFile);
-        playAudio(fileToPlay);
-    }
-
     private void startRecording() {
         //Start timer from 0
         timer.setBase(SystemClock.elapsedRealtime());
         timer.start();
 
         //Get app external directory path
-        recordPath = getActivity().getExternalFilesDir("/").getAbsolutePath();
+        //    recordPath = getActivity().getExternalFilesDir("/").getAbsolutePath();
+
+        //initialize filename variable with date and time at the end to ensure the new file wont overwrite previous file
+
+        filenameText.setText("Recording...");
+
+        recorder = new AudioRecord(MediaRecorder.AudioSource.MIC, RECORDER_SAMPLERATE, RECORDER_CHANNELS, RECORDER_AUDIO_ENCODING, bufferSize);
+
+        int i = recorder.getState();
+        if(i==1)
+            recorder.startRecording();
+
+        isRecording = true;
+
+        recordingThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                writeAudioDataToFile();
+            }
+        },"AudioRecorder Thread");
+        recordingThread.start();
+    }
+
+    //Setup Media Recorder for recording
+//        mediaRecorder = new MediaRecorder();
+//        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+//        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+//        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+//        mediaRecorder.setAudioChannels(1);
+//        mediaRecorder.setOutputFile(recordPath + "/" + recordFile);
+//        mediaRecorder.setAudioEncodingBitRate(16*44100);
+//        mediaRecorder.setAudioSamplingRate(44100);
+//
+//        try {
+//            mediaRecorder.prepare();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        //Start Recording
+//        mediaRecorder.start();
+//    }
+
+    private void stopRecording() {
+        //Stop Timer, very obvious
+        timer.stop();
 
         //Get current date and time
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss", Locale.CANADA);
         Date now = new Date();
 
-        //initialize filename variable with date and time at the end to ensure the new file wont overwrite previous file
-        recordFile = "Recording_text" + "_" + formatter.format(now) + ".m4a";
+        recordFile = "Recording_text" + "_" + formatter.format(now) + AUDIO_RECORDER_FILE_EXT_WAV;
 
-        filenameText.setText("Recording...");
+        //Change text on page to file saved
+        filenameText.setText("File Created: " + getFilename(recordFile));
 
-        //Setup Media Recorder for recording
-        mediaRecorder = new MediaRecorder();
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-        mediaRecorder.setAudioChannels(1);
-        mediaRecorder.setOutputFile(recordPath + "/" + recordFile);
-        mediaRecorder.setAudioEncodingBitRate(16*44100);
-        mediaRecorder.setAudioSamplingRate(44100);
+        if(null != recorder){
+            isRecording = false;
+
+            int i = recorder.getState();
+            if(i==1)
+                recorder.stop();
+            recorder.release();
+
+            recorder = null;
+            recordingThread = null;
+        }
+
+        copyWaveFile(getTempFilename(),getFilename(recordFile));
+        deleteTempFile();
+
+        //Stop media recorder and set it to null for further use to record new audio
+    //    mediaRecorder.stop();
+    //    mediaRecorder.release();
+    //    mediaRecorder = null;
+    //    fileToPlay = new File(recordPath+"/" + recordFile);
+        File fileToPlay = new File(getFilename(recordFile));
+    //    fileToPlay = new File(getTempFilename());
+        playAudio(fileToPlay);
+    }
+
+    private String getTempFilename(){
+        String filepath = Environment.getExternalStorageDirectory().getPath();
+        File file = new File(filepath,AUDIO_RECORDER_FOLDER);
+
+        if(!file.exists()){
+            file.mkdirs();
+        }
+
+        File tempFile = new File(filepath,AUDIO_RECORDER_TEMP_FILE);
+
+        if(tempFile.exists())
+            tempFile.delete();
+
+        return (file.getAbsolutePath() + "/" + AUDIO_RECORDER_TEMP_FILE);
+    }
+
+    private String getFilename(String recordFile){
+        String filepath = Environment.getExternalStorageDirectory().getPath();
+        File file = new File(filepath,AUDIO_RECORDER_FOLDER);
+
+        if(!file.exists()){
+            file.mkdirs();
+        }
+
+        return (file.getAbsolutePath() + "/" + recordFile);
+    }
+
+    private void writeAudioDataToFile(){
+        byte data[] = new byte[bufferSize];
+
+        String filename = getTempFilename();
+        FileOutputStream os = null;
 
         try {
-            mediaRecorder.prepare();
-        } catch (IOException e) {
+            os = new FileOutputStream(filename);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
-        //Start Recording
-        mediaRecorder.start();
+        int read = 0;
+
+        if(null != os){
+            while(isRecording){
+                read = recorder.read(data, 0, bufferSize);
+
+                if(AudioRecord.ERROR_INVALID_OPERATION != read){
+                    try {
+                        os.write(data);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            try {
+                os.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
+    private void deleteTempFile() {
+        File file = new File(getTempFilename());
+        file.delete();
+    }
+
+    private void copyWaveFile(String inFilename,String outFilename){
+        FileInputStream in = null;
+        FileOutputStream out = null;
+        long totalAudioLen = 0;
+        long totalDataLen = totalAudioLen + 36;
+        long longSampleRate = RECORDER_SAMPLERATE;
+        int channels = 1;
+        long byteRate = RECORDER_BPP * RECORDER_SAMPLERATE * channels/8;
+
+        byte[] data = new byte[bufferSize];
+
+        try {
+            in = new FileInputStream(inFilename);
+            out = new FileOutputStream(outFilename);
+            totalAudioLen = in.getChannel().size();
+            totalDataLen = totalAudioLen + 36;
+
+            // AppLog.logString("File size: " + totalDataLen);
+
+            WriteWaveFileHeader(out, totalAudioLen, totalDataLen,
+                    longSampleRate, channels, byteRate);
+
+            while(in.read(data) != -1){
+                out.write(data);
+            }
+
+            in.close();
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void WriteWaveFileHeader(
+            FileOutputStream out, long totalAudioLen,
+            long totalDataLen, long longSampleRate, int channels,
+            long byteRate) throws IOException {
+
+        byte[] header = new byte[44];
+
+        header[0] = 'R';  // RIFF/WAVE header
+        header[1] = 'I';
+        header[2] = 'F';
+        header[3] = 'F';
+        header[4] = (byte) (totalDataLen & 0xff);
+        header[5] = (byte) ((totalDataLen >> 8) & 0xff);
+        header[6] = (byte) ((totalDataLen >> 16) & 0xff);
+        header[7] = (byte) ((totalDataLen >> 24) & 0xff);
+        header[8] = 'W';
+        header[9] = 'A';
+        header[10] = 'V';
+        header[11] = 'E';
+        header[12] = 'f';  // 'fmt ' chunk
+        header[13] = 'm';
+        header[14] = 't';
+        header[15] = ' ';
+        header[16] = 16;  // 4 bytes: size of 'fmt ' chunk
+        header[17] = 0;
+        header[18] = 0;
+        header[19] = 0;
+        header[20] = 1;  // format = 1
+        header[21] = 0;
+        header[22] = (byte) channels;
+        header[23] = 0;
+        header[24] = (byte) (longSampleRate & 0xff);
+        header[25] = (byte) ((longSampleRate >> 8) & 0xff);
+        header[26] = (byte) ((longSampleRate >> 16) & 0xff);
+        header[27] = (byte) ((longSampleRate >> 24) & 0xff);
+        header[28] = (byte) (byteRate & 0xff);
+        header[29] = (byte) ((byteRate >> 8) & 0xff);
+        header[30] = (byte) ((byteRate >> 16) & 0xff);
+        header[31] = (byte) ((byteRate >> 24) & 0xff);
+        header[32] = (byte) (1 * 16 / 8);  // block align
+        header[33] = 0;
+        header[34] = RECORDER_BPP;  // bits per sample
+        header[35] = 0;
+        header[36] = 'd';
+        header[37] = 'a';
+        header[38] = 't';
+        header[39] = 'a';
+        header[40] = (byte) (totalAudioLen & 0xff);
+        header[41] = (byte) ((totalAudioLen >> 8) & 0xff);
+        header[42] = (byte) ((totalAudioLen >> 16) & 0xff);
+        header[43] = (byte) ((totalAudioLen >> 24) & 0xff);
+
+        out.write(header, 0, 44);
+    }
+
+
 
     private boolean checkPermissions() {
         //Check permission
@@ -366,6 +586,18 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
         } else {
             //Permission not granted, ask for permission
             ActivityCompat.requestPermissions(getActivity(), new String[]{recordPermission}, PERMISSION_CODE);
+            return false;
+        }
+    }
+
+    private boolean checkStoragePermission() {
+        //Check permission
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            //Permission Granted
+            return true;
+        } else {
+            //Permission not granted, ask for permission
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_CODE);
             return false;
         }
     }
