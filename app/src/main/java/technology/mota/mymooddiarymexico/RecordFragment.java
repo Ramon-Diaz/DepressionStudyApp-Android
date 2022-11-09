@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -419,24 +420,46 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
     }
 
     private String getTempFilename(){
-        String filepath = Environment.getExternalStorageDirectory().getPath();
-        File file = new File(filepath,AUDIO_RECORDER_FOLDER);
-
-        if(!file.exists()){
-            file.mkdirs();
+        File dir = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            dir = new File(getContext().getExternalFilesDir(null) ,AUDIO_RECORDER_FOLDER);
+        }
+        else{
+            dir = new File(Environment.getExternalStorageDirectory().getPath(),AUDIO_RECORDER_FOLDER);
+        }
+        // Make sure the path directory exists.
+        if (!dir.exists()) {
+            // Make it, if it doesn't exit
+            boolean success = dir.mkdirs();
+            if (!success) {
+                dir = null;
+            }
         }
 
-        File tempFile = new File(filepath,AUDIO_RECORDER_TEMP_FILE);
+        File tempFile = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            tempFile = new File(getContext().getExternalFilesDir(null) ,AUDIO_RECORDER_TEMP_FILE);
+        }
+        else{
+            tempFile = new File(Environment.getExternalStorageDirectory().getPath(),AUDIO_RECORDER_TEMP_FILE);
+        }
 
         if(tempFile.exists())
             tempFile.delete();
 
-        return (file.getAbsolutePath() + "/" + AUDIO_RECORDER_TEMP_FILE);
+        return (dir.getAbsolutePath() + "/" + AUDIO_RECORDER_TEMP_FILE);
     }
 
     private String getFilename(String recordFile){
-        String filepath = Environment.getExternalStorageDirectory().getPath();
-        File file = new File(filepath,AUDIO_RECORDER_FOLDER);
+    //    String filepath = Environment.getExternalStorageDirectory().getPath();
+    //    File file = new File(filepath,AUDIO_RECORDER_FOLDER);
+        File file = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            file = new File(getContext().getExternalFilesDir(null) ,AUDIO_RECORDER_FOLDER);
+        }
+        else{
+            file = new File(Environment.getExternalStorageDirectory().getPath(),AUDIO_RECORDER_FOLDER);
+        }
 
         if(!file.exists()){
             file.mkdirs();

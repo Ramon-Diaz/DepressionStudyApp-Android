@@ -67,10 +67,10 @@
 
     <string-array name="dropdown_array">
         <item>- </item>
-        <item>0 No me ha ocurrido</item>
-        <item>1 Me ha ocurrido un poco, o durante parte del tiempo</item>
-        <item>2 Me ha ocurrido bastante, o durante una buena parte del tiempo</item>
-        <item>3 Me ha ocurrido mucho, o la mayor parte del tiempo</item>
+        <item>0 Did not apply to me at all</item>
+        <item>1 Applied to me to some degree, or some of the time</item>
+        <item>2 Applied to me to a considerable degree or a good part of time</item>
+        <item>3 Applied to me very much or most of the time</item>
     </string-array>
     <string-array name="dropdown_gender">
         <item>- </item>
